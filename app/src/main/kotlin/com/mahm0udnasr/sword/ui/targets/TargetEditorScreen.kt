@@ -234,7 +234,6 @@ private fun ShortsSectionsCard(sections: androidx.compose.runtime.snapshots.Snap
                         add(ctx.getString(if (s.wholeApp) R.string.shorts_wholeApp else R.string.shorts_inApp))
                         if (s.web.isNotEmpty()) add(ctx.getString(R.string.shorts_andWeb))
                         if (installed == null) add(ctx.getString(R.string.target_notInstalled))
-                        if (!s.verified) add(ctx.getString(R.string.shorts_unverified))
                     }
                     Text(notes.joinToString(" · "), color = t.muted, fontSize = 11.sp)
                 }

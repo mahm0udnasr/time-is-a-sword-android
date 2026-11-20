@@ -201,7 +201,6 @@
     <string name="shorts_inApp" formatted="false">داخل التطبيق</string>
     <string name="shorts_wholeApp" formatted="false">التطبيق كله</string>
     <string name="shorts_andWeb" formatted="false">والموقع</string>
-    <string name="shorts_unverified" formatted="false">لم يُختبر بعد</string>
     <string name="shorts_needOne" formatted="false">شغّل واحدًا على الأقل.</string>
     <string name="lo_sectionRemoved" formatted="false">{name} لم يعد مغلقًا</string>
 </resources>

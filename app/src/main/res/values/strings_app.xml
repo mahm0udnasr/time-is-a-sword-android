@@ -202,7 +202,6 @@
     <string name="shorts_inApp" formatted="false">inside the app</string>
     <string name="shorts_wholeApp" formatted="false">the whole app</string>
     <string name="shorts_andWeb" formatted="false">and the website</string>
-    <string name="shorts_unverified" formatted="false">not tested yet</string>
     <string name="shorts_needOne" formatted="false">Switch on at least one.</string>
     <string name="lo_sectionRemoved" formatted="false">{name} no longer closed</string>
 </resources>
