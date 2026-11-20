@@ -26,5 +26,10 @@ fun firstRunConfig(presetsJson: String): Config {
             enabled = false,
         )
     }
-    return Config(targets = targets)
+    return withShortsTarget(Config(targets = targets))
 }
+
+/** Adds the Short-videos target (Phase 12), switched off, if it isn't there yet. */
+fun withShortsTarget(c: Config): Config =
+    if (c.targets.any { it.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID }) c
+    else c.copy(targets = c.targets + com.mahm0udnasr.sword.core.shorts.defaultShortsTarget(com.mahm0udnasr.sword.core.shorts.DEFAULT_SECTION_IDS))

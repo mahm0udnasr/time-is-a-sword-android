@@ -99,7 +99,15 @@ class MainActivity : AppCompatActivity() {
         // The saved language is the source of truth; switching recreates the activity.
         lifecycleScope.launch {
             c.config.awaitLoaded()
-            c.config.flow.map { it.appearance.lang }.distinctUntilChanged().collect { AppLocale.apply(it) }
+            c.config.flow.map { it.appearance.lang }.distinctUntilChanged().collect { lang ->
+                AppLocale.apply(lang)
+                // The Short-videos target's name follows the language (used in notifications, widgets, pauses).
+                val want = if (lang == Lang.AR) "المقاطع القصيرة" else "Short videos"
+                c.config.update { cfg ->
+                    if (cfg.targets.none { it.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID && it.name != want }) cfg
+                    else cfg.copy(targets = cfg.targets.map { if (it.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID) it.copy(name = want) else it })
+                }
+            }
         }
 
         setContent {

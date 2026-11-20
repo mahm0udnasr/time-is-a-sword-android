@@ -128,6 +128,7 @@ private fun targetLoosening(prev: Target, next: Target, groups: List<Group>): Li
     if (oldGroup != null && next.groupId != prev.groupId) reasons += LooseReason.LeavesGroup(oldGroup.name)
     prev.packages.filter { it !in next.packages }.forEach { reasons += LooseReason.PackageRemoved(it) }
     prev.domains.filter { it !in next.domains }.forEach { reasons += LooseReason.DomainRemoved(it) }
+    prev.sections.filter { it !in next.sections }.forEach { reasons += LooseReason.SectionRemoved(it) }
     return reasons + rulesLoosening(prev.rules, next.rules)
 }
 

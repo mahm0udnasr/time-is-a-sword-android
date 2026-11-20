@@ -1,6 +1,9 @@
 package com.mahm0udnasr.sword.ui.targets
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
+import androidx.compose.material.icons.outlined.VideoLibrary
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -88,7 +91,11 @@ fun TargetsScreen(c: AppContainer, committer: Committer, onOpen: (String) -> Uni
     val shown = today.targets.filter { r ->
         q.isEmpty() || r.target.name.lowercase().contains(q) || r.target.domains.any { q in it } ||
             r.target.packages.any { q in it || InstalledApps.label(ctx, it).lowercase().contains(q) }
-    }.sortedByDescending { it.target.enabled }
+    }.sortedWith(
+        // Short videos pinned at the top (Phase 12), then switched-on targets first.
+        compareByDescending<com.mahm0udnasr.sword.ui.overview.TargetToday> { it.target.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID }
+            .thenByDescending { it.target.enabled },
+    )
 
     fun added(text: String) = scope.launch { snack.showSnackbar(text) }
 
@@ -112,7 +119,13 @@ fun TargetsScreen(c: AppContainer, committer: Committer, onOpen: (String) -> Uni
                 val group = cfg.groups.firstOrNull { it.id == target.groupId }
                 SwordCard(Modifier.clickable { onOpen(target.id) }) {
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        AppAvatar(target.packages.firstOrNull { InstalledApps.isInstalled(ctx, it) }, target.domains.firstOrNull() ?: target.name)
+                        if (target.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID) {
+                            Box(Modifier.size(40.dp).background(t.accentSoft, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
+                                Icon(Icons.Outlined.VideoLibrary, null, tint = t.accent)
+                            }
+                        } else {
+                            AppAvatar(target.packages.firstOrNull { InstalledApps.isInstalled(ctx, it) }, target.domains.firstOrNull() ?: target.name)
+                        }
                         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                                 Text(target.name, fontWeight = FontWeight.SemiBold, color = if (target.enabled) t.text else t.muted, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))

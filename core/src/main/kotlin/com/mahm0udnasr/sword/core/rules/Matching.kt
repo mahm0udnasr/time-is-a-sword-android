@@ -57,6 +57,17 @@ fun hostOfUrlBar(text: String): String? {
     return hostOf(if (SCHEME.containsMatchIn(t) && t.contains("://")) t else "https://$t")
 }
 
+/**
+ * The path of what the URL bar shows ("m.youtube.com/shorts/abc?x=1" → "/shorts/abc"),
+ * "/" if there is none, null if it isn't a URL (Phase 12: short-video pages).
+ */
+fun pathOfUrlBar(text: String): String? {
+    val t = text.trim()
+    if (t.isEmpty() || t.any { it.isWhitespace() }) return null
+    val full = if (SCHEME.containsMatchIn(t) && t.contains("://")) t else "https://$t"
+    return runCatching { java.net.URI(full).rawPath }.getOrNull()?.ifEmpty { "/" } ?: "/"
+}
+
 /** True if host is exactly the domain or a subdomain of it. x.com ≠ box.com. */
 fun hostMatches(host: String, domain: String): Boolean = host == domain || host.endsWith(".$domain")
 

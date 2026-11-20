@@ -61,9 +61,15 @@ class Tracker(
         scope.launch { config.flow.drop(1).collect { flushNow() } }
     }
 
-    fun setInUse(targetId: String?) {
-        if (targetId == inUse) return
+    /** Short videos inside an app: that app's own target, credited too (Q8). */
+    @Volatile
+    var alsoInUse: String? = null
+        private set
+
+    fun setInUse(targetId: String?, also: String? = null) {
+        if (targetId == inUse && also == alsoInUse) return
         inUse = targetId
+        alsoInUse = also
         if (started) scope.launch { flushNow() }
     }
 
@@ -83,7 +89,7 @@ class Tracker(
     suspend fun flushNow(discard: Boolean = false) {
         var result: FlushResult? = null
         state.update { s ->
-            flush(s, config.value, inUse, wall(), elapsed(), zone(), discardSession = discard).also { result = it }.state
+            flush(s, config.value, inUse, wall(), elapsed(), zone(), discardSession = discard, alsoInUse = alsoInUse).also { result = it }.state
         }
         val r = result ?: return
         onFlushed(r)

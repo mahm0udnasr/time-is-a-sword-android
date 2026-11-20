@@ -174,6 +174,7 @@ fun Context.looseReason(r: LooseReason, appLabel: (String) -> String = { it }): 
     is LooseReason.LeavesGroup -> tr(R.string.x_lo_leavesGroup, "name" to r.groupName)
     is LooseReason.PackageRemoved -> tr(R.string.lo_appRemoved, "app" to ltr(appLabel(r.pkg)))
     is LooseReason.DomainRemoved -> tr(R.string.lo_domainRemoved, "site" to ltr(r.domain))
+    is LooseReason.SectionRemoved -> tr(R.string.lo_sectionRemoved, "name" to shortsSectionName(r.section))
     LooseReason.GuardOff -> getString(R.string.lo_guardOff)
     LooseReason.UnsupportedBrowsersAllowed -> getString(R.string.lo_browsersAllowed)
     LooseReason.AutoTimeNotRequired -> getString(R.string.lo_autoTimeOff)
@@ -185,3 +186,6 @@ fun Context.looseReason(r: LooseReason, appLabel: (String) -> String = { it }): 
     is LooseReason.PrayerSwitchedOff -> tr(R.string.x_pl_prayerOff, "name" to getString(prayerName(r.prayer)))
     is LooseReason.PrayerAdjusted -> tr(R.string.x_pl_adjust, "name" to getString(prayerName(r.prayer)), "a" to r.a, "b" to r.b)
 }
+
+/** A short-video section's name in the app's language (from shorts.json). */
+fun Context.shortsSectionName(id: String): String = com.mahm0udnasr.sword.ui.targets.ShortsCatalog.name(this, id)

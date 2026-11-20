@@ -7,7 +7,7 @@ import kotlin.random.Random
  * tracker constants). Not editable in the UI: fewer knobs to cheat with (D7).
  */
 object Defaults {
-    const val SCHEMA_VERSION = 1
+    const val SCHEMA_VERSION = 2
     const val RESET_HOUR = 0
     val WARNING_MINUTES: List<Int> = listOf(5, 1)
     const val IDLE_THRESHOLD_SEC = 60

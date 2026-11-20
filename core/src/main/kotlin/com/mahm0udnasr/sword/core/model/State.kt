@@ -41,6 +41,8 @@ data class Session(
     val since: Long,
     val lastFlushWall: Long,
     val lastFlushElapsed: Long,
+    /** Short videos inside an app: the app's own target is credited too (Q8). */
+    val alsoTargetId: String? = null,
 )
 
 @Serializable

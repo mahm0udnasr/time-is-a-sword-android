@@ -194,4 +194,15 @@
     <string name="w_hijriSuffix" formatted="false">"\u00A0AH"</string>
     <string name="w_cardTitle" formatted="false">Widgets</string>
     <string name="w_cardHint" formatted="false">Add a widget to your home screen: today’s time, or the prayer times with a countdown.</string>
+    <string name="shorts_title" formatted="false">Short videos</string>
+    <string name="shorts_closed" formatted="false">Short videos are closed</string>
+    <string name="shorts_closedHint" formatted="false">Reels, Shorts and the like are closed now; the rest of the app is open.</string>
+    <string name="shorts_sections" formatted="false">Where</string>
+    <string name="shorts_sectionsHint" formatted="false">Only the full-screen short-video player is closed; the feed, messages and the rest of the app stay open. Short-video apps close entirely.</string>
+    <string name="shorts_inApp" formatted="false">inside the app</string>
+    <string name="shorts_wholeApp" formatted="false">the whole app</string>
+    <string name="shorts_andWeb" formatted="false">and the website</string>
+    <string name="shorts_unverified" formatted="false">not tested yet</string>
+    <string name="shorts_needOne" formatted="false">Switch on at least one.</string>
+    <string name="lo_sectionRemoved" formatted="false">{name} no longer closed</string>
 </resources>

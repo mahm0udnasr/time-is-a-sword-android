@@ -45,6 +45,7 @@ class SwordAccessibilityService : AccessibilityService() {
     private lateinit var overlay: OverlayController
     private lateinit var prayer: com.mahm0udnasr.sword.prayer.PrayerScheduler
     private lateinit var settingsGuard: Guard
+    private lateinit var shorts: ShortsDetector
     private var autoTimeObserver: android.database.ContentObserver? = null
 
     /** Automatic date & time (D12), followed live. */
@@ -94,6 +95,7 @@ class SwordAccessibilityService : AccessibilityService() {
         )
         overlay = OverlayController(this)
         settingsGuard = Guard(this, assets.open("guard.json").use { it.readBytes().decodeToString() })
+        shorts = ShortsDetector(assets.open("shorts.json").use { it.readBytes().decodeToString() })
         autoTimeOn = com.mahm0udnasr.sword.system.AutoTime.isOn(this)
         autoTimeObserver = com.mahm0udnasr.sword.system.AutoTime.observe(this) { on ->
             guard("autotime") {
@@ -103,6 +105,13 @@ class SwordAccessibilityService : AccessibilityService() {
             }
         }
         enforcer = Enforcer(this) { resolver.launchers }
+        // Short videos (Phase 12, Q9): the small card after Back; then look again.
+        enforcer.onSoft = { d ->
+            val cfg = c.config.value
+            val ctx = com.mahm0udnasr.sword.widget.Widgets.localized(this)
+            overlay.showNotice(ctx.getString(com.mahm0udnasr.sword.R.string.shorts_closed), ctx.getString(com.mahm0udnasr.sword.R.string.shorts_closedHint), cfg.appearance.theme, cfg.appearance.lang)
+        }
+        enforcer.recheck = { main.post { guard("recheck") { resolveNow() } } }
         // Salah First (step 7.6): every app not on the allowlist, every website.
         // Clock (D12): automatic date & time off → limit/schedule targets closed.
         enforcer.locks = {
@@ -196,7 +205,8 @@ class SwordAccessibilityService : AccessibilityService() {
                 // Throttled, not debounced: a page that never stops changing
                 // (video, animations) must not postpone the read forever.
                 // Settings pages change inside one window too (App list → App info): the guard re-reads them.
-                if ((current.browser || settingsGuard.watches(current.pkg)) && e.packageName?.toString() == current.pkg && !urlPending) {
+                // Short-video players open inside the same window too (YouTube Shorts tab, a reel from the feed).
+                if ((current.browser || settingsGuard.watches(current.pkg) || shorts.watches(current.pkg)) && e.packageName?.toString() == current.pkg && !urlPending) {
                     urlPending = true
                     main.postDelayed(urlRunnable, URL_THROTTLE_MS)
                 }
@@ -215,19 +225,30 @@ class SwordAccessibilityService : AccessibilityService() {
         val w = resolver.resolve(this)
         if (w.pkg == null) return // a short gap between two apps (Spike A): keep what we had
         var host: String? = null
+        var path: String? = null
         var source: String? = null
         val browser = !w.ignored && urls.isBrowser(w.pkg)
         if (browser) {
             when (val r = urls.read(this, w.pkg, w.title)) {
-                is UrlRead.Host -> { host = r.host; source = r.source }
-                UrlRead.Typing -> if (current.pkg == w.pkg) { host = current.host; source = "typing" }
+                is UrlRead.Host -> { host = r.host; path = r.path; source = r.source }
+                UrlRead.Typing -> if (current.pkg == w.pkg) { host = current.host; path = current.path; source = "typing" }
                 UrlRead.None -> {}
             }
         }
-        val fg = Foreground(w.pkg, w.visible, w.title, w.ignored, browser, host, source, targetFor(w.pkg, host, w.ignored, browser))
+        // Short videos (Phase 12): a short-video page, a whole short-video app, or the player inside an app.
+        val section = when {
+            w.ignored -> null
+            browser -> shorts.forWeb(host, path)
+            else -> shorts.forApp(this, w.pkg)
+        }
+        val (primary, also) = targetsFor(w.pkg, host, w.ignored, browser, section?.id)
+        val fg = Foreground(
+            w.pkg, w.visible, w.title, w.ignored, browser, host, source, primary,
+            path = path, section = section?.id, sectionInApp = section != null && !section.wholeApp && !browser, alsoTargetId = also,
+        )
         if (fg != current) {
-            if (fg.pkg != current.pkg || fg.host != current.host || fg.targetId != current.targetId) {
-                DebugBus.event("FG ${fg.pkg}${fg.host?.let { " · $it" } ?: ""}${fg.targetId?.let { " → $it" } ?: ""} [${fg.hostSource ?: "-"}] visible=${fg.visible} title=${fg.title}")
+            if (fg.pkg != current.pkg || fg.host != current.host || fg.targetId != current.targetId || fg.section != current.section) {
+                DebugBus.event("FG ${fg.pkg}${fg.host?.let { " · $it" } ?: ""}${fg.section?.let { " [$it]" } ?: ""}${fg.targetId?.let { " → $it" } ?: ""}${fg.alsoTargetId?.let { " + $it" } ?: ""} [${fg.hostSource ?: "-"}] visible=${fg.visible} title=${fg.title}")
             }
             current = fg
             DebugBus.foreground.value = fg
@@ -265,21 +286,34 @@ class SwordAccessibilityService : AccessibilityService() {
             }
             val page = if (guardOn && pkg !in ignored) settingsGuard.check(this, pkg) else null
             if (page != null) DebugBus.event("GUARD $page in $pkg")
-            WindowInfo(pkg, host, browser, unsupportedBrowser = pkg in urls.unsupported, ignored = pkg in ignored, guarded = page != null)
+            // The section of the window in front is known; others (split screen): whole short-video apps only.
+            val (section, inApp) = when {
+                pkg == current.pkg -> current.section to current.sectionInApp
+                pkg !in ignored && !browser -> shorts.rules.let { r -> com.mahm0udnasr.sword.core.shorts.matchWholeApp(r, pkg)?.id } to false
+                else -> null to false
+            }
+            WindowInfo(pkg, host, browser, unsupportedBrowser = pkg in urls.unsupported, ignored = pkg in ignored, guarded = page != null, section = section, sectionInApp = inApp)
         }
         enforcer.check(windows, c.config.value, c.state.value, now, java.time.ZoneId.systemDefault())
     }
 
-    /** The enabled target in front: the website's target in a browser, else the app's. */
-    private fun targetFor(pkg: String, host: String?, ignored: Boolean, browser: Boolean): String? {
-        if (ignored) return null
+    /**
+     * The enabled target in front: the website's target in a browser, else the app's.
+     * In short videos (Phase 12) the Short-videos target is timed, and the app's or
+     * site's own target too (Q8): returns (primary, also).
+     */
+    private fun targetsFor(pkg: String, host: String?, ignored: Boolean, browser: Boolean, section: String?): Pair<String?, String?> {
+        if (ignored) return null to null
         val cfg: Config = applicationContext.container.config.value
         val t = if (browser) findTargetByHost(host, cfg.targets)?.target else findTargetByPackage(pkg, cfg.targets)
-        return t?.takeIf { it.enabled }?.id
+        val own = t?.takeIf { it.enabled }?.id
+        val st = cfg.targets.firstOrNull { it.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID && it.enabled && section != null && section in it.sections }
+        return if (st != null) st.id to own else own to null
     }
 
     private fun updateInUse() {
-        tracker.setInUse(if (screen.state.value.active) current.targetId else null)
+        val active = screen.state.value.active
+        tracker.setInUse(if (active) current.targetId else null, if (active) current.alsoTargetId else null)
     }
 
     private fun refreshPackageLists() {

@@ -216,7 +216,7 @@ class BlockActivity : androidx.appcompat.app.AppCompatActivity() {
         if (c.prayerClock.active() != null) return true
         return when (reason) {
             BlockReason.BROWSER -> webRulesActive(cfg)
-            BlockReason.BLOCKED, BlockReason.LIMIT, BlockReason.SCHEDULE -> {
+            BlockReason.BLOCKED, BlockReason.LIMIT, BlockReason.SCHEDULE, BlockReason.SHORTS -> {
                 val t = cfg.targets.firstOrNull { it.id == targetId } ?: return false
                 val s = c.state.value
                 evaluate(t, EvalContext(System.currentTimeMillis(), ZoneId.systemDefault(), usage = s.usage, targets = cfg.targets, groups = cfg.groups, pauses = s.pauses)).blocked
@@ -297,6 +297,7 @@ private fun BlockScreen(
                 BlockReason.BROWSER -> stringResource(R.string.block_browser)
                 BlockReason.CLOCK -> stringResource(R.string.block_clock)
                 BlockReason.GUARD -> stringResource(R.string.block_guard)
+                BlockReason.SHORTS -> stringResource(R.string.shorts_closed)
                 // "حان وقت صلاة الظهر · 11:40" (the extension's prayer line).
                 BlockReason.PRAYER -> prayerLine
                 else -> null

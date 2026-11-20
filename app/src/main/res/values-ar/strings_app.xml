@@ -193,4 +193,15 @@
     <string name="w_hijriSuffix" formatted="false">"\u00A0هـ"</string>
     <string name="w_cardTitle" formatted="false">الأدوات</string>
     <string name="w_cardHint" formatted="false">أضف أداة إلى الشاشة الرئيسية: وقت اليوم، أو مواقيت الصلاة مع العدّ التنازلي.</string>
+    <string name="shorts_title" formatted="false">المقاطع القصيرة</string>
+    <string name="shorts_closed" formatted="false">المقاطع القصيرة مغلقة</string>
+    <string name="shorts_closedHint" formatted="false">الريلز والشورتس ونحوها مغلقة الآن، وبقية التطبيق مفتوحة.</string>
+    <string name="shorts_sections" formatted="false">أين</string>
+    <string name="shorts_sectionsHint" formatted="false">يُغلق مشغّل المقاطع القصيرة بملء الشاشة فقط، ويبقى الرئيسي والرسائل وبقية التطبيق مفتوحة. أما تطبيقات المقاطع القصيرة فتُغلق كلها.</string>
+    <string name="shorts_inApp" formatted="false">داخل التطبيق</string>
+    <string name="shorts_wholeApp" formatted="false">التطبيق كله</string>
+    <string name="shorts_andWeb" formatted="false">والموقع</string>
+    <string name="shorts_unverified" formatted="false">لم يُختبر بعد</string>
+    <string name="shorts_needOne" formatted="false">شغّل واحدًا على الأقل.</string>
+    <string name="lo_sectionRemoved" formatted="false">{name} لم يعد مغلقًا</string>
 </resources>

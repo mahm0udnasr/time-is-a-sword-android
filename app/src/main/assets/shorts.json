@@ -1,0 +1,57 @@
+{
+  "_comment": "Short-video sections (Phase 12). inApp: the full-screen player inside a bigger app, matched by a view id (\"ids\", short names, checked as <package>:id/<name>) or by a selected tab whose content description starts with one of \"selectedDesc\" (apps that strip their view ids, e.g. Facebook). wholeApp: apps that are only short videos (the package alone matches). web: \"host/path-prefix\" in a browser's address bar (host matches subdomains: m.youtube.com). verified = checked on the phone with the spike (2026-11-20, S24 Ultra, One UI 9, apps in English).",
+  "sections": [
+    {
+      "id": "youtube_shorts",
+      "name": { "ar": "شورتس يوتيوب", "en": "YouTube Shorts" },
+      "kind": "inApp",
+      "packages": ["com.google.android.youtube", "app.revanced.android.youtube"],
+      "ids": ["reel_watch_player", "reel_recycler", "reel_player_page_container"],
+      "web": ["youtube.com/shorts/"],
+      "verified": true
+    },
+    {
+      "id": "instagram_reels",
+      "name": { "ar": "ريلز إنستغرام", "en": "Instagram Reels" },
+      "kind": "inApp",
+      "packages": ["com.instagram.android", "com.instagram.lite"],
+      "ids": ["clips_viewer_view_pager", "clips_viewer_container", "root_clips_layout"],
+      "web": ["instagram.com/reels/", "instagram.com/reel/"],
+      "verified": true
+    },
+    {
+      "id": "facebook_reels",
+      "name": { "ar": "ريلز فيسبوك", "en": "Facebook Reels" },
+      "kind": "inApp",
+      "packages": ["com.facebook.katana", "com.facebook.lite"],
+      "selectedDesc": ["Reels, tab", "ريلز، علامة التبويب", "ريلز، علامة تبويب"],
+      "web": ["facebook.com/reel/", "facebook.com/reels/"],
+      "verified": true
+    },
+    {
+      "id": "snapchat_spotlight",
+      "name": { "ar": "سبوتلايت سناب شات", "en": "Snapchat Spotlight" },
+      "kind": "inApp",
+      "packages": ["com.snapchat.android"],
+      "selectedDesc": ["Spotlight", "الأضواء"],
+      "web": ["snapchat.com/spotlight"],
+      "verified": false
+    },
+    {
+      "id": "tiktok",
+      "name": { "ar": "تيك توك", "en": "TikTok" },
+      "kind": "wholeApp",
+      "packages": ["com.zhiliaoapp.musically", "com.ss.android.ugc.trill", "com.zhiliaoapp.musically.go"],
+      "web": ["tiktok.com/"],
+      "verified": false
+    },
+    {
+      "id": "other_short_apps",
+      "name": { "ar": "تطبيقات مقاطع قصيرة أخرى", "en": "Other short-video apps" },
+      "kind": "wholeApp",
+      "packages": ["video.like", "com.kwai.video", "com.kwai.bulldog", "co.triller.droid", "in.mohalla.video", "com.eterno.shortvideos", "io.chingari.app", "com.zhiliaoapp.musically.lite"],
+      "web": ["likee.video/", "kwai.com/"],
+      "verified": false
+    }
+  ]
+}

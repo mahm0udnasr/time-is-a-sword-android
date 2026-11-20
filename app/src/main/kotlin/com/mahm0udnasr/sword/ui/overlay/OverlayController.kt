@@ -101,6 +101,32 @@ class OverlayController(private val service: AccessibilityService) {
         }
     }
 
+    /** A short notice card at the top (Phase 12: "Short videos are closed"), gone after a few seconds. */
+    fun showNotice(title: String, text: String, theme: Theme, lang: com.mahm0udnasr.sword.core.model.Lang) {
+        hide()
+        val lp = WindowManager.LayoutParams(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
+                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+            PixelFormat.TRANSLUCENT,
+        ).apply { gravity = Gravity.TOP; y = 120 }
+        val o = OverlayOwner().also { it.start() }
+        val v = ComposeView(service.withLang(lang)).apply {
+            o.attach(this)
+            setContent { SwordTheme(theme) { NoticeCard(title, text) { hide() } } }
+        }
+        if (runCatching { service.getSystemService(WindowManager::class.java).addView(v, lp) }.isSuccess) {
+            view = v
+            owner = o
+            vibrate()
+            main.postDelayed({ hide() }, NOTICE_MS)
+        } else {
+            o.stop()
+        }
+    }
+
     fun hide() {
         main.removeCallbacksAndMessages(null)
         view?.let { runCatching { service.getSystemService(WindowManager::class.java).removeView(it) } }
@@ -120,11 +146,26 @@ class OverlayController(private val service: AccessibilityService) {
     }
 
     private companion object {
+        const val NOTICE_MS = 3_500L
         const val SHOW_MS = 6_000L
     }
 }
 
 private val HM = DateTimeFormatter.ofPattern("HH:mm")
+
+@Composable
+private fun NoticeCard(title: String, text: String, onClose: () -> Unit) {
+    val t = com.mahm0udnasr.sword.ui.theme.LocalSwordColors.current
+    androidx.compose.foundation.layout.Column(
+        androidx.compose.ui.Modifier.padding(horizontal = 16.dp).fillMaxWidth()
+            .background(t.surface, androidx.compose.foundation.shape.RoundedCornerShape(16.dp))
+            .border(1.dp, t.accentSoft, androidx.compose.foundation.shape.RoundedCornerShape(16.dp))
+            .clickable(onClick = onClose).padding(16.dp),
+    ) {
+        androidx.compose.material3.Text(title, color = t.text, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, fontSize = 16.sp)
+        androidx.compose.material3.Text(text, color = t.muted, fontSize = 13.sp)
+    }
+}
 
 @Composable
 private fun WarningCard(targetName: String, kind: BlockKind, blockAt: Long, onClose: () -> Unit) {

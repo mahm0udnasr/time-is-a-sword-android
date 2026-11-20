@@ -47,6 +47,7 @@ data class FlushResult(
  * @param inUse the enabled target in use right now (foreground + screen on and
  *   unlocked), or null. Only one session exists, so nothing is counted twice.
  * @param discardSession drop an old session without crediting it (process start, boot).
+ * @param alsoInUse short videos inside an app: the app's own target, credited too (Q8).
  */
 fun flush(
     state: State,
@@ -58,6 +59,7 @@ fun flush(
     discardSession: Boolean = false,
     resetHour: Int = Defaults.RESET_HOUR,
     warningMinutes: List<Int> = Defaults.WARNING_MINUTES,
+    alsoInUse: String? = null,
 ): FlushResult {
     val old = if (discardSession) null else state.session
 
@@ -65,7 +67,10 @@ fun flush(
     var usage = state.usage
     if (old != null) {
         val delta = min(elapsedNow - old.lastFlushElapsed, Defaults.MAX_GAP_MS)
-        if (delta > 0) usage = creditTime(usage, old.targetId, wallNow - delta, wallNow, zone, resetHour)
+        if (delta > 0) {
+            usage = creditTime(usage, old.targetId, wallNow - delta, wallNow, zone, resetHour)
+            old.alsoTargetId?.takeIf { it != old.targetId }?.let { usage = creditTime(usage, it, wallNow - delta, wallNow, zone, resetHour) }
+        }
     }
     usage = pruneUsage(usage, wallNow, zone, resetHour)
     val pauses = activePauses(state.pauses, wallNow)
@@ -75,9 +80,12 @@ fun flush(
     val ctx = EvalContext(wallNow, zone, resetHour, usage, config.targets, config.groups, pauses)
     val target = inUse?.let { id -> config.targets.firstOrNull { it.id == id && it.enabled } }
     val verdict = target?.let { evaluate(it, ctx) }
-    val session = if (target != null && verdict is Verdict.Allowed) {
+    val also = alsoInUse?.takeIf { it != inUse }?.let { id -> config.targets.firstOrNull { it.id == id && it.enabled } }
+    val alsoVerdict = also?.let { evaluate(it, ctx) }
+    val session = if (target != null && verdict is Verdict.Allowed && alsoVerdict !is Verdict.Blocked) {
         Session(
             targetId = target.id,
+            alsoTargetId = also?.id,
             since = if (old?.targetId == target.id) old.since else wallNow,
             lastFlushWall = wallNow,
             lastFlushElapsed = elapsedNow,
@@ -106,16 +114,18 @@ fun flush(
     }
 
     // 4. Did the target we were just on run out (its own budget or its group's)?
-    val ranOut = old?.targetId?.takeIf { id ->
+    val ranOut = listOfNotNull(old?.targetId, old?.alsoTargetId).firstOrNull { id ->
         val t = config.targets.firstOrNull { it.id == id }
         t != null && evaluate(t, ctx).blocked
     }
+    // Wake up at whichever runs out first: the short videos or the app they are in.
+    val alsoBlockAt = (alsoVerdict as? Verdict.Allowed)?.blockAt
 
     return FlushResult(
         state = state.copy(usage = usage, session = session, pauses = pauses),
         verdict = verdict,
         warning = warning,
-        blockAt = if (session != null) allowed?.blockAt else null,
+        blockAt = if (session != null) listOfNotNull(allowed?.blockAt, alsoBlockAt).minOrNull() else null,
         nextWarnAt = nextWarnAt,
         ranOut = ranOut,
     )

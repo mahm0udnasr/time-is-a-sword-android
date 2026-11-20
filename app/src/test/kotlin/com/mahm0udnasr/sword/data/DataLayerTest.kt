@@ -24,6 +24,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Rule as JUnitRule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
+import com.mahm0udnasr.sword.core.model.Defaults
 import java.io.File
 
 /** Phase 2 acceptance: repositories, corruption, concurrency, seeding, commit pipeline, assets. */
@@ -42,11 +43,11 @@ class DataLayerTest {
     private val presets = File(assets, "presets.json").readText()
 
     @Test
-    fun `first run - all 13 presets, switched off, no groups, Salah First off`() = runBlocking {
+    fun `first run - all 13 presets and Short videos, switched off, no groups, Salah First off`() = runBlocking {
         val repo = ConfigRepository(tmp.root, newScope(), firstRunConfig(presets))
         repo.awaitLoaded()
         val c = repo.value
-        assertEquals(13, c.targets.size)
+        assertEquals(14, c.targets.size)
         assertTrue(c.targets.none { it.enabled })
         assertTrue(c.groups.isEmpty())
         assertFalse(c.prayer.enabled)
@@ -72,7 +73,7 @@ class DataLayerTest {
         val again = ConfigRepository(tmp.root, newScope(), Config())
         again.awaitLoaded()
         assertTrue(again.value.targets.first { it.id == "p_youtube" }.enabled)
-        assertEquals("the file wins over first-run defaults", 13, again.value.targets.size)
+        assertEquals("the file wins over first-run defaults", 14, again.value.targets.size)
     }
 
     @Test
@@ -105,13 +106,16 @@ class DataLayerTest {
         File(tmp.root, "config.json").writeText("{\"schemaVersion\":0,\"targets\":[]}")
         val repo = ConfigRepository(tmp.root, newScope(), Config())
         repo.awaitLoaded()
-        assertEquals(1, repo.value.schemaVersion)
-        assertEquals(1, ConfigMigrations.migrate(Config(schemaVersion = 0)).schemaVersion)
+        assertEquals(Defaults.SCHEMA_VERSION, repo.value.schemaVersion)
+        assertEquals(Defaults.SCHEMA_VERSION, ConfigMigrations.migrate(Config(schemaVersion = 0)).schemaVersion)
+        // 1 → 2 adds the Short-videos target, switched off (Phase 12).
+        val shorts = repo.value.targets.single { it.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID }
+        assertFalse(shorts.enabled)
     }
 
     @Test
     fun `unknown fields from a newer version are ignored`() = runBlocking {
-        File(tmp.root, "config.json").writeText("{\"schemaVersion\":1,\"futureThing\":true,\"targets\":[]}")
+        File(tmp.root, "config.json").writeText("{\"schemaVersion\":2,\"futureThing\":true,\"targets\":[]}")
         val repo = ConfigRepository(tmp.root, newScope(), firstRunConfig(presets))
         repo.awaitLoaded()
         assertEquals(0, repo.value.targets.size)

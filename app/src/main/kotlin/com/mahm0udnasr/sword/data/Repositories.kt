@@ -9,11 +9,14 @@ import java.io.File
 
 /**
  * Schema migrations for `config.json` (step 2.4). Each step takes a config of
- * version n and returns version n + 1. Empty for v1: the hook is in place.
+ * version n and returns version n + 1.
  */
 object ConfigMigrations {
-    /** index i migrates version i + 1 → i + 2 (none yet). */
-    internal val steps: List<(Config) -> Config> = emptyList()
+    /** index i migrates version i + 1 → i + 2. */
+    internal val steps: List<(Config) -> Config> = listOf(
+        // 1 → 2 (Phase 12): the Short-videos target, switched off.
+        { c -> withShortsTarget(c) },
+    )
 
     fun migrate(c: Config): Config {
         var cur = c

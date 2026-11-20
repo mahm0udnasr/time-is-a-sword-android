@@ -36,6 +36,15 @@ class Enforcer(private val service: AccessibilityService, private val launchers:
     /** Locks from later phases (prayer: 7, guard and clock: 8). */
     var locks: () -> Locks = { Locks() }
 
+    /** Short videos closed with Back (Q9): show the small card. */
+    var onSoft: (BlockDecision) -> Unit = {}
+
+    /** Look at the screen again (after a Back, to see whether it worked). */
+    var recheck: () -> Unit = {}
+
+    private var lastSoftPkg: String? = null
+    private var lastSoftAt = 0L
+
     /**
      * Judge the windows on screen; block the first one that must not be used.
      * @return the decision acted on, or null
@@ -50,6 +59,22 @@ class Enforcer(private val service: AccessibilityService, private val launchers:
         val l = locks()
         val d = windows.firstNotNullOfOrNull { decide(it, config, ctx, l) } ?: return null
         val t = SystemClock.elapsedRealtime()
+        // Short videos inside an app (Q9): leave the player with Back and keep the app.
+        // If the player is still there a second later, Back didn't work: full block.
+        if (d.soft) {
+            val since = if (d.pkg == lastSoftPkg) t - lastSoftAt else Long.MAX_VALUE
+            if (since < SOFT_SETTLE_MS) return null // the Back is still going through
+            if (since >= SOFT_RETRY_MS) {
+                lastSoftPkg = d.pkg
+                lastSoftAt = t
+                val back = service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+                DebugBus.event("SHORTS back ${d.pkg} ok=$back")
+                onSoft(d)
+                main.postDelayed({ recheck() }, SOFT_CHECK_MS)
+                return d
+            }
+            DebugBus.event("SHORTS back didn't leave the player: block screen")
+        }
         if (d.pkg == lastBlockPkg && t - lastBlockAt < REBLOCK_GAP_MS) return null // one block per storm of events
         lastBlockAt = t
         lastBlockPkg = d.pkg
@@ -76,5 +101,11 @@ class Enforcer(private val service: AccessibilityService, private val launchers:
     private companion object {
         const val LAUNCHER_WAIT_MS = 700L
         const val REBLOCK_GAP_MS = 800L
+        /** After a Back, ignore the player for this long (it is closing). */
+        const val SOFT_SETTLE_MS = 900L
+        /** Check again this long after a Back. */
+        const val SOFT_CHECK_MS = 1_100L
+        /** Still in the player within this long after a Back → the block screen. */
+        const val SOFT_RETRY_MS = 3_000L
     }
 }

@@ -22,7 +22,7 @@ data class BrowserSpec(
 /** What the URL bar told us. */
 sealed interface UrlRead {
     /** A host was read. [source] is "urlbar" or "webapk". */
-    data class Host(val host: String, val source: String) : UrlRead
+    data class Host(val host: String, val source: String, val path: String? = null) : UrlRead
 
     /** The user is typing in the URL bar: keep the previous host. */
     data object Typing : UrlRead
@@ -99,8 +99,9 @@ class BrowserUrlReader(private val context: Context, browsersJson: String) {
             for (id in spec.urlBarIds) {
                 val node = root.findAccessibilityNodeInfosByViewId("$pkg:id/$id").firstOrNull() ?: continue
                 if (node.isFocused) return UrlRead.Typing
-                val host = hostOfUrlBar(node.text?.toString() ?: "")
-                if (host != null) return UrlRead.Host(host, "urlbar")
+                val text = node.text?.toString() ?: ""
+                val host = hostOfUrlBar(text)
+                if (host != null) return UrlRead.Host(host, "urlbar", com.mahm0udnasr.sword.core.rules.pathOfUrlBar(text))
             }
         }
         windowTitle?.let { t -> webApks[t] ?: webApks[t.removePrefix("Chrome: ")] }?.let { return UrlRead.Host(it, "webapk") }

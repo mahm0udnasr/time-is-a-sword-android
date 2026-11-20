@@ -41,6 +41,8 @@ data class Target(
     val packages: List<String> = emptyList(),
     /** Normalized domains (see normalizeDomain), e.g. "instagram.com". */
     val domains: List<String> = emptyList(),
+    /** Short-video sections (only the Short-videos target, Phase 12): ids from shorts.json. */
+    val sections: List<String> = emptyList(),
     override val rules: List<Rule> = listOf(Rule.default()),
 ) : RuleHolder
 

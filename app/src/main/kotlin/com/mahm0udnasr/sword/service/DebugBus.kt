@@ -22,6 +22,13 @@ data class Foreground(
     val host: String? = null,
     val hostSource: String? = null,
     val targetId: String? = null,
+    /** URL path in a browser (short-video pages, Phase 12). */
+    val path: String? = null,
+    /** The short-video section in front, and whether it is a player inside a bigger app. */
+    val section: String? = null,
+    val sectionInApp: Boolean = false,
+    /** Short videos inside an app: that app's own target, timed too (Q8). */
+    val alsoTargetId: String? = null,
 )
 
 /**

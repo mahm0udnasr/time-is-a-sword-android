@@ -18,6 +18,7 @@ sealed interface LooseReason {
     // Android: a target's apps and domains
     data class PackageRemoved(val pkg: String) : LooseReason
     data class DomainRemoved(val domain: String) : LooseReason
+    data class SectionRemoved(val section: String) : LooseReason
 
     // Android: protection switches (§8.5)
     data object GuardOff : LooseReason

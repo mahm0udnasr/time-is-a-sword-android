@@ -78,6 +78,9 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
     var name by remember { mutableStateOf(original.name) }
     val packages = remember { original.packages.toMutableStateList() }
     val domains = remember { original.domains.toMutableStateList() }
+    // Short videos (Phase 12): sections instead of apps and websites.
+    val isShorts = original.id == com.mahm0udnasr.sword.core.shorts.SHORTS_TARGET_ID
+    val sections = remember { original.sections.toMutableStateList() }
     var groupId by remember { mutableStateOf(original.groupId) }
     val rules = remember { original.rules.map(RuleDraft::of).toMutableStateList() }
     var newDomain by remember { mutableStateOf("") }
@@ -89,8 +92,10 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
     Column(Modifier.verticalScroll(rememberScrollState()).imePadding().padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         PageHeader(tr(R.string.target_title, "name" to ltr(original.name)))
 
+        if (isShorts) ShortsSectionsCard(sections)
+
         SwordCard {
-            OutlinedTextField(name, { name = it.take(40) }, Modifier.fillMaxWidth(), singleLine = true, label = { Text(stringResource(R.string.target_name)) })
+            if (!isShorts) OutlinedTextField(name, { name = it.take(40) }, Modifier.fillMaxWidth(), singleLine = true, label = { Text(stringResource(R.string.target_name)) })
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(stringResource(R.string.target_group), color = t.muted, modifier = Modifier.weight(1f))
                 var open by remember { mutableStateOf(false) }
@@ -107,7 +112,7 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
             }
         }
 
-        SwordCard {
+        if (!isShorts) SwordCard {
             CardTitle(stringResource(R.string.target_apps)) {
                 IconButton(onClick = { picker = true }) { Icon(Icons.Outlined.Add, stringResource(R.string.add_app), tint = t.accent) }
             }
@@ -125,7 +130,7 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
             }
         }
 
-        SwordCard {
+        if (!isShorts) SwordCard {
             CardTitle(stringResource(R.string.target_sites))
             if (domains.isEmpty()) Text(stringResource(R.string.target_noSites), color = t.muted, fontSize = 13.sp)
             domains.forEach { d ->
@@ -160,7 +165,7 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
         errors.forEach { Text("• $it", color = t.danger, fontSize = 13.sp) }
 
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalAlignment = Alignment.CenterVertically) {
-            TextButton(onClick = {
+            if (!isShorts) TextButton(onClick = {
                 scope.launch {
                     busy = true
                     val draft = c.config.value.copy(targets = c.config.value.targets.filter { it.id != id })
@@ -180,14 +185,15 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
                 errors.clear()
                 val (parsed, ruleErrors) = ctx.readRules(rules, allowEmpty = true)
                 if (name.isBlank()) errors += ctx.getString(R.string.err_nameEmpty)
-                if (packages.isEmpty() && domains.isEmpty()) errors += ctx.getString(R.string.err_emptyTarget)
+                if (isShorts && sections.isEmpty()) errors += ctx.getString(R.string.shorts_needOne)
+                if (!isShorts && packages.isEmpty() && domains.isEmpty()) errors += ctx.getString(R.string.err_emptyTarget)
                 errors += ruleErrors
                 if (errors.isNotEmpty()) return@Button
                 scope.launch {
                     busy = true
                     val cur = c.config.value
                     val updated = (cur.targets.firstOrNull { it.id == id } ?: original)
-                        .copy(name = name.trim(), packages = packages.toList(), domains = domains.toList(), groupId = groupId, rules = parsed)
+                        .copy(name = name.trim(), packages = packages.toList(), domains = domains.toList(), sections = sections.toList(), groupId = groupId, rules = parsed)
                     val out = committer.commit(cur.copy(targets = cur.targets.map { if (it.id == id) updated else it }), ctx.tr(R.string.target_loosenTitle, "name" to ltr(original.name)))
                     busy = false
                     if (out == Committer.Outcome.CANCELLED) {
@@ -206,6 +212,34 @@ fun TargetEditorScreen(c: AppContainer, committer: Committer, id: String, onDone
         AppPicker(c.config.value.targets, except = id, onDismiss = { picker = false }) { picked ->
             picker = false
             picked.filter { it !in packages }.forEach { packages += it }
+        }
+    }
+}
+
+/** Short videos: one switch per section (Phase 12). Switching one off is looser (friction on save). */
+@androidx.compose.runtime.Composable
+private fun ShortsSectionsCard(sections: androidx.compose.runtime.snapshots.SnapshotStateList<String>) {
+    val ctx = LocalContext.current
+    val t = LocalSwordColors.current
+    SwordCard {
+        CardTitle(stringResource(R.string.shorts_sections))
+        Text(stringResource(R.string.shorts_sectionsHint), color = t.muted, fontSize = 12.sp)
+        ShortsCatalog.sections(ctx).forEach { s ->
+            val installed = s.packages.firstOrNull { InstalledApps.isInstalled(ctx, it) }
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                AppAvatar(installed, ShortsCatalog.name(ctx, s.id), 32.dp)
+                Column(Modifier.weight(1f)) {
+                    Text(ShortsCatalog.name(ctx, s.id), color = t.text)
+                    val notes = buildList {
+                        add(ctx.getString(if (s.wholeApp) R.string.shorts_wholeApp else R.string.shorts_inApp))
+                        if (s.web.isNotEmpty()) add(ctx.getString(R.string.shorts_andWeb))
+                        if (installed == null) add(ctx.getString(R.string.target_notInstalled))
+                        if (!s.verified) add(ctx.getString(R.string.shorts_unverified))
+                    }
+                    Text(notes.joinToString(" · "), color = t.muted, fontSize = 11.sp)
+                }
+                androidx.compose.material3.Switch(s.id in sections, onCheckedChange = { on -> if (on) sections.add(s.id) else sections.remove(s.id) })
+            }
         }
     }
 }
