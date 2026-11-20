@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Time Is a Sword</string>
+    <!-- The launcher name is Arabic in every language (user's choice); inside the app the English UI still says "Time Is a Sword" (x_app_name). -->
+    <string name="app_name">الوقت سيف</string>
     <string name="a11y_summary">Blocks and time-limits the apps and websites you chose.</string>
     <string name="a11y_description">Time Is a Sword uses this service to see which app is on screen and which website is open in your browser, so it can count your time and block what you chose to limit. Everything stays on your phone: nothing is collected or sent anywhere.</string>
     <string name="debug_title">Debug</string>
