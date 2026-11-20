@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0
+
+- **Home-screen widgets** (Settings › Widgets, or long-press the home screen › Widgets):
+  - **Today**: time used today, and each app/site with what's left or "blocked", most urgent first; pauses left; a warning if protection is off.
+  - **Prayer times**: the next prayer with a countdown (or the Salah First lock in progress), today's five times with the next one highlighted, the Hijri and Gregorian dates.
+  - Both follow the app's language (Arabic right-to-left, English left-to-right) and light/dark mode, and open the matching screen when tapped.
+- Overview: the three summary tiles share one height.
+- The app is named «الوقت سيف» in every language.
+- Onboarding: the Device admin button opens Android's screen again; the restricted-settings step quotes Android's "App was denied access" message.
+
 ## 1.0.0 — first release
 
 The Android version of the [Time Is a Sword](https://github.com/mahm0udnasr/time-is-a-sword) browser extension.
