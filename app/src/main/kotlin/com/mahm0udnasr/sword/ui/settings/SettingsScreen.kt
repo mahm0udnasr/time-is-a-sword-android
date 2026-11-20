@@ -111,6 +111,7 @@ fun SettingsScreen(c: AppContainer, committer: Committer, onAbout: () -> Unit) {
         com.mahm0udnasr.sword.ui.onboarding.ProtectionStatusCard(c, committer)
         ProtectionCard(c, committer)
 
+        WidgetsCard()
         BackupCard(c, committer)
 
         // About: author, links, licences, recovery steps, version (×7 → Debug).
@@ -274,6 +275,24 @@ private fun BackupCard(c: AppContainer, committer: Committer) {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             OutlinedButton(onClick = { export.launch(com.mahm0udnasr.sword.data.Backup.fileName()) }) { Text(stringResource(R.string.backup_export)) }
             OutlinedButton(onClick = { import.launch(arrayOf("application/json", "text/plain", "application/octet-stream")) }) { Text(stringResource(R.string.backup_import)) }
+        }
+    }
+}
+
+/** Home-screen widgets: ask the launcher to place one (it shows its own confirmation). */
+@Composable
+private fun WidgetsCard() {
+    val ctx = LocalContext.current
+    val t = LocalSwordColors.current
+    val awm = remember { android.appwidget.AppWidgetManager.getInstance(ctx) }
+    if (!awm.isRequestPinAppWidgetSupported) return
+    fun pin(cls: Class<*>) = runCatching { awm.requestPinAppWidget(android.content.ComponentName(ctx, cls), null, null) }
+    SwordCard {
+        CardTitle(stringResource(R.string.w_cardTitle))
+        Text(stringResource(R.string.w_cardHint), color = t.muted, fontSize = 12.sp)
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            OutlinedButton(onClick = { pin(com.mahm0udnasr.sword.widget.TodayWidgetReceiver::class.java) }) { Text(stringResource(R.string.w_todayName)) }
+            OutlinedButton(onClick = { pin(com.mahm0udnasr.sword.widget.PrayerWidgetReceiver::class.java) }) { Text(stringResource(R.string.w_prayerName)) }
         }
     }
 }

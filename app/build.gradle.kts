@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.work.runtime)
+    implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.lifecycle.runtime.compose)
     debugImplementation(libs.androidx.compose.ui.tooling)
 

@@ -106,6 +106,30 @@
             </intent-filter>
         </receiver>
 
+        <!-- Home-screen widgets: "Today" and "Prayer times". -->
+        <receiver
+            android:name=".widget.TodayWidgetReceiver"
+            android:exported="true"
+            android:label="@string/w_todayName">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_today" />
+        </receiver>
+        <receiver
+            android:name=".widget.PrayerWidgetReceiver"
+            android:exported="true"
+            android:label="@string/w_prayerName">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_prayer" />
+        </receiver>
+
         <receiver
             android:name=".system.BootReceiver"
             android:exported="false">

@@ -175,4 +175,22 @@
     <string name="backup_imported" formatted="false">استُعيدت النسخة الاحتياطية.</string>
     <string name="backup_same" formatted="false">النسخة الاحتياطية مطابقة لإعداداتك الحالية.</string>
     <string name="backup_loosenTitle" formatted="false">استعادة نسخة أخفّ؟</string>
+    <string name="w_todayName" formatted="false">اليوم</string>
+    <string name="w_todayDesc" formatted="false">وقت اليوم وما بقي لكل تطبيق وموقع.</string>
+    <string name="w_prayerName" formatted="false">مواقيت الصلاة</string>
+    <string name="w_prayerDesc" formatted="false">الصلاة القادمة والوقت المتبقي، ومواقيت اليوم، والتاريخ الهجري.</string>
+    <string name="w_today" formatted="false">اليوم</string>
+    <string name="w_blocked" formatted="false">محجوب</string>
+    <string name="w_left" formatted="false">باقي {dur}</string>
+    <string name="w_pauses" formatted="false">الإيقافات المتبقية اليوم: {n}</string>
+    <string name="w_nothing" formatted="false">لا قاعدة اليوم لأي تطبيق أو موقع.</string>
+    <string name="w_more" formatted="false">و{n} أخرى</string>
+    <string name="w_in" formatted="false">بعد {dur}</string>
+    <string name="w_lockedUntil" formatted="false">كل شيء مغلق حتى {time}</string>
+    <string name="w_noLocation" formatted="false">حدّد موقعك في «الصلاة أولًا» لتظهر المواقيت.</string>
+    <string name="w_salahOn" formatted="false">«الصلاة أولًا» مفعّلة</string>
+    <string name="w_salahOff" formatted="false">«الصلاة أولًا» متوقفة</string>
+    <string name="w_hijriSuffix" formatted="false"> هـ</string>
+    <string name="w_cardTitle" formatted="false">الأدوات</string>
+    <string name="w_cardHint" formatted="false">أضف أداة إلى الشاشة الرئيسية: وقت اليوم، أو مواقيت الصلاة مع العدّ التنازلي.</string>
 </resources>

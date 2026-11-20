@@ -176,4 +176,22 @@
     <string name="backup_imported" formatted="false">Backup loaded.</string>
     <string name="backup_same" formatted="false">The backup is the same as your current settings.</string>
     <string name="backup_loosenTitle" formatted="false">Load a looser backup?</string>
+    <string name="w_todayName" formatted="false">Today</string>
+    <string name="w_todayDesc" formatted="false">Time used today and what’s left for each app and site.</string>
+    <string name="w_prayerName" formatted="false">Prayer times</string>
+    <string name="w_prayerDesc" formatted="false">The next prayer with a countdown, today’s times and the Hijri date.</string>
+    <string name="w_today" formatted="false">Today</string>
+    <string name="w_blocked" formatted="false">Blocked</string>
+    <string name="w_left" formatted="false">{dur} left</string>
+    <string name="w_pauses" formatted="false">Pauses left today: {n}</string>
+    <string name="w_nothing" formatted="false">No app or site has a rule today.</string>
+    <string name="w_more" formatted="false">+{n} more</string>
+    <string name="w_in" formatted="false">in {dur}</string>
+    <string name="w_lockedUntil" formatted="false">Everything is closed until {time}</string>
+    <string name="w_noLocation" formatted="false">Set your location in Salah First to see the times.</string>
+    <string name="w_salahOn" formatted="false">Salah First is on</string>
+    <string name="w_salahOff" formatted="false">Salah First is off</string>
+    <string name="w_hijriSuffix" formatted="false"> AH</string>
+    <string name="w_cardTitle" formatted="false">Widgets</string>
+    <string name="w_cardHint" formatted="false">Add a widget to your home screen: today’s time, or the prayer times with a countdown.</string>
 </resources>

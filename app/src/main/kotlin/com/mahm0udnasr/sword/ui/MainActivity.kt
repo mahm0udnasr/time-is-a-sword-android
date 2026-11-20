@@ -77,11 +77,21 @@ private val TABS = listOf(
 
 /** The app (step 5.3): bottom bar with Overview, Apps & sites, Groups, Salah First, Settings. */
 class MainActivity : AppCompatActivity() {
+    /** The screen a widget asked for (Widgets.EXTRA_ROUTE), consumed by the NavHost. */
+    private val route = androidx.compose.runtime.mutableStateOf<String?>(null)
+
+    override fun onNewIntent(intent: android.content.Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        intent.getStringExtra(com.mahm0udnasr.sword.widget.Widgets.EXTRA_ROUTE)?.let { route.value = it }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val c = container
         val committer = Committer(c) { this }
+        if (savedInstanceState == null) route.value = intent.getStringExtra(com.mahm0udnasr.sword.widget.Widgets.EXTRA_ROUTE)
 
         // The saved language is the source of truth; switching recreates the activity.
         lifecycleScope.launch {
@@ -118,6 +128,16 @@ class MainActivity : AppCompatActivity() {
                 }
                 CompositionLocalProvider(LocalSnackbar provides snackbar) {
                     val nav = rememberNavController()
+                    // Opened from a widget: go to its screen ("overview" / "salah").
+                    androidx.compose.runtime.LaunchedEffect(route.value) {
+                        val r = route.value ?: return@LaunchedEffect
+                        route.value = null
+                        nav.navigate(r) {
+                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
                     val entry by nav.currentBackStackEntryAsState()
                     val route = entry?.destination?.route
                     Scaffold(

@@ -67,6 +67,7 @@ class SwordAccessibilityService : AccessibilityService() {
             applicationContext.container.prayerClock.invalidate()
             prayer.reschedule()
             enforceNow()
+            com.mahm0udnasr.sword.widget.Widgets.request(this@SwordAccessibilityService, force = true)
         }
     }
 
@@ -115,6 +116,7 @@ class SwordAccessibilityService : AccessibilityService() {
         prayer = com.mahm0udnasr.sword.prayer.PrayerScheduler(this, c.prayerClock, s, onBoundary = {
             DebugBus.event("PRAYER boundary lock=${c.prayerClock.active()?.prayer ?: "-"}")
             updateStatus(DebugBus.lastFlush.value?.state?.session?.targetId, DebugBus.lastFlush.value?.verdict)
+            com.mahm0udnasr.sword.widget.Widgets.request(this, force = true)
             enforceNow()
             refreshPrayerTimes()
         })
@@ -134,6 +136,7 @@ class SwordAccessibilityService : AccessibilityService() {
                 if (before != after) DebugBus.event("SESSION $before → $after (inUse=$inUse, verdict=${r.verdict?.javaClass?.simpleName})")
                 DebugBus.lastFlush.value = r
                 updateStatus(r.state.session?.targetId, r.verdict)
+                com.mahm0udnasr.sword.widget.Widgets.request(this@SwordAccessibilityService)
                 // Budget ran out, window ended, pause ended, rules changed: judge the screen again (4.4).
                 enforceNow()
             }
@@ -164,6 +167,7 @@ class SwordAccessibilityService : AccessibilityService() {
                 guard("config") {
                     refreshPrayerTimes()
                     val at = prayer.reschedule()
+                    com.mahm0udnasr.sword.widget.Widgets.request(this@SwordAccessibilityService, force = true)
                     DebugBus.event("PRAYER next boundary ${at?.let { java.time.Instant.ofEpochMilli(it).atZone(java.time.ZoneId.systemDefault()).toLocalTime() } ?: "-"}")
                     resolveNow()
                 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Today" widget: 4×2 by default, resizable. Updated by the service while the phone is used; 30 min fallback. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/w_todayDesc"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:minWidth="180dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="140dp"
+    android:minResizeHeight="90dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="2"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />
