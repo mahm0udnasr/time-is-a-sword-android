@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -109,7 +110,10 @@ fun OverviewScreen(c: AppContainer, committer: com.mahm0udnasr.sword.ui.friction
             if (largeFont()) {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) { stats.forEach { (i, l, v) -> Stat(Modifier.fillMaxWidth(), i, l, v, wide = true) } }
             } else {
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) { stats.forEach { (i, l, v) -> Stat(Modifier.weight(1f), i, l, v) } }
+                // Same height for all three, whatever wraps (IntrinsicSize.Max = the tallest tile).
+                Row(Modifier.height(androidx.compose.foundation.layout.IntrinsicSize.Max), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    stats.forEach { (i, l, v) -> Stat(Modifier.weight(1f).fillMaxHeight(), i, l, v) }
+                }
             }
         }
         item {
@@ -179,6 +183,8 @@ private fun Stat(modifier: Modifier, icon: androidx.compose.ui.graphics.vector.I
             Icon(icon, null, tint = t.muted, modifier = Modifier.size(16.dp))
             Text(label, color = t.muted, fontSize = 12.sp, maxLines = 2, lineHeight = 15.sp)
         }
+        // Numbers on one line across the three tiles, even when a label wraps.
+        androidx.compose.foundation.layout.Spacer(Modifier.weight(1f))
         Text(value, color = t.text, fontSize = 20.sp, fontWeight = FontWeight.Bold, maxLines = 1)
     }
 }
