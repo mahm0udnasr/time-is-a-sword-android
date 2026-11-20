@@ -14,8 +14,8 @@ android {
         applicationId = "com.mahm0udnasr.sword"
         minSdk = 26
         targetSdk = 37
-        versionCode = 2
-        versionName = "1.1.0"
+        versionCode = 3
+        versionName = "1.2.0"
     }
 
     // Release key (step 11.1): kept outside the repo; its path and passwords come from

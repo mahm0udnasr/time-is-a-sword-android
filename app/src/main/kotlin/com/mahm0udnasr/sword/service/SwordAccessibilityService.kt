@@ -57,6 +57,14 @@ class SwordAccessibilityService : AccessibilityService() {
     private var urlPending = false
     private val urlRunnable = Runnable { urlPending = false; guard("url") { resolveNow() } }
 
+    /**
+     * One more look once a short-video app's screen has settled (Phase 12). Opening the
+     * Shorts/Reels tab sends a burst of events while the player is still loading; the
+     * throttled read can land before it, and a playing video sends no more events, so
+     * without this the player was sometimes missed (seen on the phone).
+     */
+    private val settleRunnable = Runnable { guard("settle") { resolveNow() } }
+
     private val packagesChanged = object : BroadcastReceiver() {
         override fun onReceive(c: Context, i: Intent) = guard("packages") { refreshPackageLists() }
     }
@@ -199,6 +207,11 @@ class SwordAccessibilityService : AccessibilityService() {
 
     override fun onAccessibilityEvent(e: AccessibilityEvent?) = guard("event") {
         if (e == null || scope == null) return@guard
+        val evPkg = e.packageName?.toString()
+        if (shorts.watches(evPkg)) {
+            main.removeCallbacks(settleRunnable)
+            main.postDelayed(settleRunnable, SETTLE_MS)
+        }
         when (e.eventType) {
             AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> {
                 // Single-page sites change URL without a new window (§8.2 step 5).
@@ -404,5 +417,6 @@ class SwordAccessibilityService : AccessibilityService() {
         const val TAG = "SwordService"
         const val RESOLVE_THROTTLE_MS = 120L
         const val URL_THROTTLE_MS = 400L
+        const val SETTLE_MS = 700L
     }
 }

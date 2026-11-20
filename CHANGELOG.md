@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0
+
+- **Short videos**: a new card at the top of Apps & sites closes the short-video part of apps while the rest stays open — YouTube Shorts, Instagram Reels, Facebook Reels, Snapchat Spotlight and their web pages — and short-video apps entirely (TikTok, Likee, Kwai…).
+  - Its own rule: always blocked, a daily limit (15 min by default) or allowed hours, per weekday; pauses and warnings as usual.
+  - When closed: Back out of the player with a small "Short videos are closed" card; the block screen if Back doesn't get out.
+  - Time in Reels/Shorts counts for both Short videos and the app itself.
+  - Switching a platform off or loosening the rule needs the confirmation step.
+
 ## 1.1.0
 
 - **Home-screen widgets** (Settings › Widgets, or long-press the home screen › Widgets):

@@ -37,6 +37,7 @@ An Android app that guards your time: it blocks or time-limits distracting apps 
 - **التطبيق وموقعه شيء واحد:** إنستغرام مثلًا هو التطبيق و instagram.com معًا، بوقت واحد مشترك.
 - **قواعد لكل يوم:** حجب دائم، أو حد يومي بالدقائق، أو ساعات مسموحة فقط، أو الاثنان معًا.
 - **المجموعات:** تطبيقات تتشارك وقتًا واحدًا (مثل واتساب وتيليجرام).
+- **المقاطع القصيرة:** أغلق شورتس يوتيوب وريلز إنستغرام وفيسبوك وسبوتلايت سناب شات وتطبيقات المقاطع القصيرة كتيك توك، دائمًا أو بحد يومي أو في ساعات، مع بقاء بقية التطبيق مفتوحة.
 - **حساب دقيق:** يُحسب الوقت فقط والتطبيق أمامك والشاشة مفتوحة، ولا يُحسب مرتين.
 - **تنبيهات** قبل 5 دقائق ثم دقيقة، و**شاشة حجب** بتذكير واحد، والشعر أبيات بشطرين ممدودين بالكشيدة.
 - **الصلاة أولًا:** قبل كل صلاة بدقائق يُغلق كل تطبيق إلا المسموح به (الاتصال والرسائل والساعة… وما تضيفه كالمصحف)، وكل موقع، ثم يُفتح بعد الصلاة. المواقيت تُحسب على الهاتف من موقعك، أو تُجلب لمدينة تكتبها.
@@ -58,6 +59,16 @@ An Android app that guards your time: it blocks or time-limits distracting apps 
 4. أكمل باقي الخطوات: الإشعارات، والبطارية بلا قيود، ومشرف الجهاز (يُنصح به).
 
 **سامسونج:** أضف التطبيق في الإعدادات › البطارية › حدود استخدام الخلفية › **التطبيقات التي لا تنام أبدًا**. ولا تفعّل «الحماية المتقدمة» في أندرويد 16+ لأنها توقف خدمات إمكانية الوصول.
+
+### المقاطع القصيرة
+
+بطاقة «المقاطع القصيرة» في أعلى التطبيقات والمواقع تغلق **مشغّل المقاطع القصيرة وحده**: شورتس يوتيوب، وريلز إنستغرام وفيسبوك، وسبوتلايت سناب شات، وصفحاتها في المتصفح (‎/shorts/‎ و‎/reels/‎). ويبقى الرئيسي والرسائل وبقية التطبيق مفتوحة. أما تطبيقات المقاطع القصيرة كلها (تيك توك ولايكي وكواي…) فتُغلق كاملة.
+
+- لها قاعدتها كأي تطبيق: حجب دائم، أو حد يومي (15 دقيقة افتراضيًا)، أو ساعات مسموحة، ولكل يوم قاعدته.
+- حين تُغلق يضغط التطبيق «رجوع» ليخرجك من المشغّل ويُظهر بطاقة صغيرة «المقاطع القصيرة مغلقة»، وإن لم يخرجك ظهرت شاشة الحجب.
+- وقت المقاطع القصيرة داخل تطبيق يُحسب لها وللتطبيق نفسه معًا (ريلز إنستغرام تُنقص وقت إنستغرام أيضًا).
+- المقاطع داخل الصفحة الرئيسية لا تُغلق؛ فإن ضغطت أحدها فُتح المشغّل فأُغلق.
+- إيقاف قسم منها أو رفع الحد يحتاج خطوة التأكيد كغيره.
 
 ### الأدوات
 
@@ -125,6 +136,7 @@ Android Studio حديث (JDK 17+)، ثم `./gradlew assembleDebug`، والاخ�
 
 - **An app and its website are one target**, sharing one budget (e.g. the Instagram app + instagram.com).
 - **Rules per weekday:** always blocked, a daily limit, allowed hours only, or both. **Groups** share one budget (e.g. WhatsApp + Telegram).
+- **Short videos:** close YouTube Shorts, Instagram and Facebook Reels, Snapchat Spotlight and short-video apps like TikTok — always, with a daily limit or by hours — while the rest of each app stays open.
 - **Accurate time:** counted only while the target is in front with the screen on and unlocked, never twice.
 - **Warnings** at 5 and 1 minutes left; a **block screen** with one reminder, poetry set as verses stretched with kashida.
 - **Salah First:** a few minutes before each prayer every app except an allowlist (calls, messages, clock… plus anything you add, like a Quran app) and every website closes, then opens again after it. Times are calculated on the phone from your location, or fetched for a city you type.
@@ -146,6 +158,16 @@ The app is not on Google Play; it installs from an APK.
 4. Finish the remaining steps: notifications, no battery restrictions, device admin (recommended).
 
 **Samsung:** also add the app to Settings › Battery › Background usage limits › **Never sleeping apps**. Keep Android 16+ **Advanced Protection** off: it disables accessibility services of apps like this one.
+
+### Short videos
+
+The **Short videos** card at the top of Apps & sites closes **only the short-video player**: YouTube Shorts, Instagram and Facebook Reels, Snapchat Spotlight, and their pages in a browser (`/shorts/`, `/reels/`). The feed, messages and the rest of the app stay open. Apps that are only short videos (TikTok, Likee, Kwai…) close entirely.
+
+- It has its own rule like any app: always blocked, a daily limit (15 minutes by default), allowed hours, per weekday.
+- When it's closed the app presses Back to take you out of the player and shows a small card, “Short videos are closed”; if that doesn't work, the block screen appears.
+- Time in short videos inside an app counts for both (Instagram Reels also uses up Instagram's own limit).
+- Short videos inside the normal feed aren't closed; tapping one opens the player, which is.
+- Switching a platform off or raising the limit needs the confirmation step, like everything else.
 
 ### Widgets
 
