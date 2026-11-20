@@ -42,6 +42,7 @@ An Android app that guards your time: it blocks or time-limits distracting apps 
 - **الصلاة أولًا:** قبل كل صلاة بدقائق يُغلق كل تطبيق إلا المسموح به (الاتصال والرسائل والساعة… وما تضيفه كالمصحف)، وكل موقع، ثم يُفتح بعد الصلاة. المواقيت تُحسب على الهاتف من موقعك، أو تُجلب لمدينة تكتبها.
 - **حاجز ضد التحايل:** أي تخفيف للقواعد يحتاج عدًّا تنازليًا 30 ثانية وكتابة تذكير كما هو دون لصق. وصفحات التطبيق في الإعدادات محميّة، ولا يُلغى تثبيته إلا بعد إلغاء «مشرف الجهاز»، وتغيير الساعة لا يمنحك يومًا جديدًا، والمتصفحات التي لا يقرؤها التطبيق تُغلق ما دامت للمواقع قواعد.
 - **إيقاف مؤقت محدود:** 5 دقائق، 3 مرات في اليوم، بالحاجز نفسه.
+- **أدوات للشاشة الرئيسية:** «اليوم» بوقتك وما بقي لكل تطبيق، و«مواقيت الصلاة» بالصلاة القادمة والعدّ التنازلي والتاريخ الهجري.
 - **معالج أول تشغيل** يرشدك خطوة خطوة، وإشعار بالوقت المتبقي، ونسخة احتياطية، وعربية أولًا مع الإنجليزية، ووضع فاتح وداكن.
 
 ### التثبيت
@@ -57,6 +58,19 @@ An Android app that guards your time: it blocks or time-limits distracting apps 
 4. أكمل باقي الخطوات: الإشعارات، والبطارية بلا قيود، ومشرف الجهاز (يُنصح به).
 
 **سامسونج:** أضف التطبيق في الإعدادات › البطارية › حدود استخدام الخلفية › **التطبيقات التي لا تنام أبدًا**. ولا تفعّل «الحماية المتقدمة» في أندرويد 16+ لأنها توقف خدمات إمكانية الوصول.
+
+### الأدوات
+
+<img src="docs/screenshots/widget-today-ar.png" alt="أداة «اليوم» على الشاشة الرئيسية" width="320" align="left">
+
+أداتان للشاشة الرئيسية، تضيفهما من الإعدادات › **الأدوات**، أو بالضغط المطوّل على الشاشة الرئيسية › الأدوات › الوقت سيف:
+
+- **اليوم:** وقتك اليوم، وكل تطبيق أو موقع له قاعدة مع ما بقي له أو «محجوب»، الأقرب إلى الحجب أولًا، والإيقافات المتبقية، وتنبيه إن توقفت الحماية.
+- **مواقيت الصلاة:** الصلاة القادمة والعدّ التنازلي لها (أو قفل «الصلاة أولًا» وموعد انتهائه)، ومواقيت اليوم الخمسة والقادمة مميّزة، والتاريخان الهجري والميلادي.
+
+تتبعان لغة التطبيق (العربية من اليمين، والإنجليزية من اليسار) والوضع الفاتح والداكن، وتتحدّثان والهاتف قيد الاستخدام دون استهلاك للبطارية، والضغط عليهما يفتح الشاشة المناسبة.
+
+<br clear="left">
 
 ### الأذونات
 
@@ -116,6 +130,7 @@ Android Studio حديث (JDK 17+)، ثم `./gradlew assembleDebug`، والاخ�
 - **Salah First:** a few minutes before each prayer every app except an allowlist (calls, messages, clock… plus anything you add, like a Quran app) and every website closes, then opens again after it. Times are calculated on the phone from your location, or fetched for a city you type.
 - **Anti-cheat:** loosening anything needs a 30-second countdown and typing a reminder exactly (no paste). The app's own Settings pages are guarded, uninstalling needs the device admin switched off first, moving the clock doesn't give you a new day, and browsers the app can't read stay closed while websites have rules.
 - **Limited pauses:** 5 minutes, 3 times a day, behind the same step.
+- **Home-screen widgets:** "Today" with your time and what's left for each app, and "Prayer times" with the next prayer, a countdown and the Hijri date.
 - **First-run wizard**, a status notification with time left, backup export/import, Arabic first with English, light and dark.
 
 ### Install
@@ -131,6 +146,19 @@ The app is not on Google Play; it installs from an APK.
 4. Finish the remaining steps: notifications, no battery restrictions, device admin (recommended).
 
 **Samsung:** also add the app to Settings › Battery › Background usage limits › **Never sleeping apps**. Keep Android 16+ **Advanced Protection** off: it disables accessibility services of apps like this one.
+
+### Widgets
+
+<img src="docs/screenshots/widget-today-ar.png" alt="The Today widget on the home screen (Arabic)" width="320" align="right">
+
+Two home-screen widgets; add them from Settings › **Widgets**, or long-press the home screen › Widgets › الوقت سيف:
+
+- **Today:** your time today, and each app or site with a rule and what's left (or "blocked"), most urgent first; pauses left; a warning if protection is off.
+- **Prayer times:** the next prayer with a countdown (or the Salah First lock and when it ends), today's five times with the next one highlighted, and the Hijri and Gregorian dates.
+
+Both follow the app's language (Arabic right-to-left, English left-to-right) and light/dark mode, refresh while you use the phone at no battery cost, and open the matching screen when tapped.
+
+<br clear="right">
 
 ### Permissions
 
