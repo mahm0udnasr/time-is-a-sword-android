@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Package visibility (Android 11+): installed apps for the picker and WebAPKs,
+         browsers, launchers (ignored), dialers (never blocked). §9.1 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- Backup alarms at block / warning / pause-end moments (§9.1; fine off Play). -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <!-- Android 12–12L have no USE_EXACT_ALARM; onboarding asks for this one there (step 9.6). -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
+    <!-- Onboarding battery step (step 9.5): fine off Play. -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- Salah First (§9.1): "Use my location" only when pressed; the one-time city lookup. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Health check (step 8.6): "Protection is off" notification; reboot: keep it scheduled (§9.1). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+        <!-- Salah First allowlist defaults (step 7.1): alarms and the camera (the APP_* categories are launcher activities). -->
+        <intent>
+            <action android:name="android.intent.action.SHOW_ALARMS" />
+        </intent>
+        <intent>
+            <action android:name="android.media.action.STILL_IMAGE_CAMERA" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".SwordApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:localeConfig="@xml/locales_config"
+        android:theme="@style/Theme.Sword">
+
+        <!-- excludeFromRecents (step 8.6b): One UI force-stops an app swiped away in Recents,
+             which switches its accessibility service off. Nothing in Recents = nothing to swipe. -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:excludeFromRecents="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".service.SwordAccessibilityService"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- Block screen (D9): own task, never in Recents, one instance. -->
+        <activity
+            android:name=".block.BlockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:noHistory="false"
+            android:taskAffinity="com.mahm0udnasr.sword.block" />
+
+        <receiver
+            android:name=".service.WakeReceiver"
+            android:exported="false" />
+
+        <!-- Device admin (§10.3): while active, Android refuses to uninstall the app. -->
+        <receiver
+            android:name=".admin.SwordDeviceAdmin"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:description="@string/admin_explain"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".system.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Per-app language on Android < 13 (AppCompat stores the choice). -->
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
+
+        <activity
+            android:name=".ui.debug.DebugActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:label="@string/debug_title" />
+    </application>
+</manifest>

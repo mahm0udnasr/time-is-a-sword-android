@@ -1,0 +1,15 @@
+[
+  { "id": "p_whatsapp", "name": "WhatsApp", "packages": ["com.whatsapp", "com.whatsapp.w4b"], "domains": ["web.whatsapp.com", "whatsapp.com"] },
+  { "id": "p_telegram", "name": "Telegram", "packages": ["org.telegram.messenger", "org.telegram.messenger.web", "org.thunderdog.challegram", "ir.ilmili.telegraph"], "domains": ["web.telegram.org", "t.me"] },
+  { "id": "p_facebook", "name": "Facebook", "packages": ["com.facebook.katana", "com.facebook.lite"], "domains": ["facebook.com", "fb.com", "fb.watch"] },
+  { "id": "p_messenger", "name": "Messenger", "packages": ["com.facebook.orca", "com.facebook.mlite"], "domains": ["messenger.com"] },
+  { "id": "p_instagram", "name": "Instagram", "packages": ["com.instagram.android", "com.instagram.lite"], "domains": ["instagram.com", "instagr.am"] },
+  { "id": "p_threads", "name": "Threads", "packages": ["com.instagram.barcelona"], "domains": ["threads.net", "threads.com"] },
+  { "id": "p_tiktok", "name": "TikTok", "packages": ["com.zhiliaoapp.musically", "com.ss.android.ugc.trill", "com.zhiliaoapp.musically.go"], "domains": ["tiktok.com"] },
+  { "id": "p_x", "name": "X", "packages": ["com.twitter.android"], "domains": ["x.com", "twitter.com"] },
+  { "id": "p_youtube", "name": "YouTube", "packages": ["com.google.android.youtube", "app.revanced.android.youtube", "org.schabi.newpipe"], "domains": ["youtube.com", "youtu.be"] },
+  { "id": "p_reddit", "name": "Reddit", "packages": ["com.reddit.frontpage"], "domains": ["reddit.com", "redd.it"] },
+  { "id": "p_snapchat", "name": "Snapchat", "packages": ["com.snapchat.android"], "domains": ["snapchat.com"] },
+  { "id": "p_linkedin", "name": "LinkedIn", "packages": ["com.linkedin.android"], "domains": ["linkedin.com"] },
+  { "id": "p_discord", "name": "Discord", "packages": ["com.discord"], "domains": ["discord.com", "discord.gg"] }
+]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">الوقت سيف</string>
+    <string name="a11y_summary">يحجب التطبيقات والمواقع التي اخترتها أو يحدّ وقتها.</string>
+    <string name="a11y_description">يستخدم «الوقت سيف» هذه الخدمة ليعرف التطبيق الظاهر على الشاشة والموقع المفتوح في المتصفح، فيحسب وقتك ويحجب ما اخترت تقييده. كل شيء يبقى على هاتفك: لا يُجمع شيء ولا يُرسل إلى أي مكان.</string>
+    <string name="debug_title">تصحيح الأخطاء</string>
+    <string name="debug_dump">تفريغ العناصر بعد ٥ ثوانٍ</string>
+    <string name="debug_dump_hint">انتقل إلى التطبيق المراد فحصه خلال ٥ ثوانٍ.</string>
+    <string name="warn_minutes">باقي %1$d د</string>
+    <string name="warn_seconds">باقي %1$s</string>
+    <string name="warn_limit">%1$s · الحد اليومي</string>
+    <string name="warn_until">%1$s · مسموح حتى %2$s</string>
+    <string name="block_browser">لا يمكن قراءة هذا المتصفح، فيبقى مغلقًا ما دامت قيود المواقع مفعّلة.</string>
+    <string name="admin_explain">يمنع إلغاء تثبيت التطبيق في لحظة ضعف. يمكنك إلغاؤه متى شئت من داخل التطبيق: الإعدادات › الحماية.</string>
+    <string name="admin_disableWarning">لإيقاف «الوقت سيف» استخدم التطبيق: الإعدادات › الحماية › إيقاف الحماية.</string>
+    <string name="health_channel">الحماية</string>
+    <string name="health_title">الحماية متوقفة</string>
+    <string name="health_text">خدمة إمكانية الوصول في «الوقت سيف» متوقفة، فلا يُحجب شيء. اضغط لإعادة تشغيلها.</string>
+</resources>

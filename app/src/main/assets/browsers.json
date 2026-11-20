@@ -1,0 +1,12 @@
+[
+  { "name": "Chrome", "verified": true, "packages": ["com.android.chrome", "com.chrome.beta", "com.chrome.dev", "com.chrome.canary"], "urlBarIds": ["url_bar"] },
+  { "name": "Brave", "verified": true, "packages": ["com.brave.browser", "com.brave.browser_beta", "com.brave.browser_nightly"], "urlBarIds": ["url_bar"] },
+  { "name": "Edge", "packages": ["com.microsoft.emmx"], "urlBarIds": ["url_bar"] },
+  { "name": "Vivaldi", "packages": ["com.vivaldi.browser"], "urlBarIds": ["url_bar"] },
+  { "name": "Kiwi", "packages": ["com.kiwibrowser.browser"], "urlBarIds": ["url_bar"] },
+  { "name": "Samsung Internet", "packages": ["com.sec.android.app.sbrowser", "com.sec.android.app.sbrowser.beta"], "urlBarIds": ["location_bar_edit_text"] },
+  { "name": "Firefox", "packages": ["org.mozilla.firefox", "org.mozilla.firefox_beta", "org.mozilla.fenix"], "urlBarIds": ["mozac_browser_toolbar_url_view"] },
+  { "name": "Opera", "packages": ["com.opera.browser"], "urlBarIds": ["url_field"] },
+  { "name": "DuckDuckGo", "packages": ["com.duckduckgo.mobile.android"], "urlBarIds": ["omnibarTextInput"] },
+  { "name": "Via", "packages": ["mark.via.gp", "mark.via"], "urlBarIds": [] }
+]

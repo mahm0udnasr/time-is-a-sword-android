@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android-only strings (the extension's own strings are in strings_ext.xml, generated). {param} = named argument. -->
+<resources>
+    <string name="nav_targets" formatted="false">Apps &amp; sites</string>
+    <string name="nav_targets_short" formatted="false">Apps</string>
+    <string name="nav_settings" formatted="false">Settings</string>
+    <string name="targets_sub" formatted="false">Each target is a service: its apps and its websites share one budget. Days without a rule are unrestricted. Stricter changes apply at once; looser ones need confirmation.</string>
+    <string name="targets_search" formatted="false">Search apps and sites</string>
+    <string name="targets_empty" formatted="false">Nothing here yet. Add an app or a website.</string>
+    <string name="targets_noMatch" formatted="false">Nothing matches “{q}”.</string>
+    <string name="add_app" formatted="false">Add apps</string>
+    <string name="add_site" formatted="false">Add a website</string>
+    <string name="add_preset" formatted="false">Add a preset</string>
+    <string name="presets_none" formatted="false">Every preset is already in your list.</string>
+    <string name="picker_title" formatted="false">Choose apps</string>
+    <string name="picker_search" formatted="false">Search installed apps</string>
+    <string name="picker_inTarget" formatted="false">in {name}</string>
+    <string name="picker_add" formatted="false">Add {n}</string>
+    <string name="picker_none" formatted="false">No app matches.</string>
+    <string name="target_added" formatted="false">{name} was added and blocked. Tap it to set a time limit or hours instead.</string>
+    <string name="targets_added" formatted="false">{n} apps added and blocked. Tap one to set a time limit or hours instead.</string>
+    <string name="target_title" formatted="false">Edit {name}</string>
+    <string name="target_name" formatted="false">Name</string>
+    <string name="target_apps" formatted="false">Apps</string>
+    <string name="target_sites" formatted="false">Websites</string>
+    <string name="target_noApps" formatted="false">No apps.</string>
+    <string name="target_noSites" formatted="false">No websites.</string>
+    <string name="target_addSite" formatted="false">Add a website, like youtube.com</string>
+    <string name="target_group" formatted="false">Group</string>
+    <string name="target_noGroup" formatted="false">No group</string>
+    <string name="target_rules" formatted="false">Rules</string>
+    <string name="target_delete" formatted="false">Delete</string>
+    <string name="target_notInstalled" formatted="false">not installed</string>
+    <string name="err_nameEmpty" formatted="false">Give it a name.</string>
+    <string name="err_dupPackage" formatted="false">{app} is already in {name}.</string>
+    <string name="err_dupDomainIn" formatted="false">{site} is already in {name}.</string>
+    <string name="err_emptyTarget" formatted="false">Add at least one app or website.</string>
+    <string name="re_everyDay" formatted="false">Every day</string>
+    <string name="group_members" formatted="false">Apps &amp; sites in this group</string>
+    <string name="protection_title" formatted="false">Protection</string>
+    <string name="protection_browsers" formatted="false">Close browsers the app can’t read</string>
+    <string name="protection_browsersHint" formatted="false">While any website has a rule, a browser whose address bar can’t be read stays closed — otherwise switching browsers would skip every website rule.</string>
+    <string name="settings_appearance" formatted="false">Appearance</string>
+    <string name="settings_language" formatted="false">Language</string>
+    <string name="settings_about" formatted="false">About</string>
+    <string name="lo_appRemoved" formatted="false">app {app} removed</string>
+    <string name="lo_domainRemoved" formatted="false">website {site} removed</string>
+    <string name="lo_guardOff" formatted="false">Settings protection switched off</string>
+    <string name="lo_browsersAllowed" formatted="false">browsers the app can’t read are allowed</string>
+    <string name="lo_autoTimeOff" formatted="false">automatic time no longer required</string>
+    <string name="lo_allowlistAdded" formatted="false">{app} allowed during prayer time</string>
+    <string name="fr_noPaste" formatted="false">Type it — pasting is turned off.</string>
+    <string name="target_switchOffTitle" formatted="false">Switch off {name}?</string>
+    <string name="target_removeTitle" formatted="false">Delete {name}?</string>
+    <string name="target_loosenTitle" formatted="false">Loosen {name}?</string>
+    <string name="protection_loosenTitle" formatted="false">Loosen protection?</string>
+    <string name="usage_none" formatted="false">—</string>
+    <string name="today_blockedUntil" formatted="false">{reason} · opens {when}</string>
+    <string name="pause_done" formatted="false">{site} is allowed until {time}.</string>
+    <string name="salah_sub" formatted="false">A few minutes before each prayer until a little after it, every app except the allowed ones and every website closes, and a hadith about salah is shown. Then they open again.</string>
+    <string name="salah_enableHint" formatted="false">When on, every app and website closes at prayer times, not only the ones in your list. Calls, messages and the allowed apps stay open.</string>
+    <string name="salah_privacy" formatted="false">Times for “your location” are calculated on the phone, and your location never leaves it. For a typed city, times are fetched from api.aladhan.com a month at a time; only the city name and the method are sent.</string>
+    <string name="salah_locked" formatted="false">Everything is closed for {name} until {time}</string>
+    <string name="salah_nextIn" formatted="false">The lock starts in {dur}</string>
+    <string name="salah_noTimes" formatted="false">No times yet. Use your location or type your city, then save.</string>
+    <string name="salah_cityNotFound" formatted="false">City not found. Type it with the country, e.g. Cairo, Egypt.</string>
+    <string name="salah_offline" formatted="false">No internet connection. A city’s times need a connection (about once a month); or use your current location.</string>
+    <string name="salah_locOff" formatted="false">Location is off on the phone. Turn it on or type your city.</string>
+    <string name="salah_locFailed" formatted="false">Couldn\'t find your location. Try again or type your city.</string>
+    <string name="salah_locDenied" formatted="false">Location access wasn\'t allowed. Type your city instead.</string>
+    <string name="allow_title" formatted="false">Open during prayer</string>
+    <string name="allow_hint" formatted="false">These apps stay open during the lock. Browsers stay closed on every website.</string>
+    <string name="allow_defaults" formatted="false">The phone\'s essential apps</string>
+    <string name="allow_yours" formatted="false">Added by you (e.g. Quran and adhkar apps)</string>
+    <string name="allow_none" formatted="false">Nothing added.</string>
+    <string name="allow_add" formatted="false">Add an app</string>
+    <string name="allow_remove" formatted="false">Remove {app}</string>
+    <string name="allow_loosenTitle" formatted="false">Allow apps during prayer?</string>
+    <string name="pause_prayer" formatted="false">No pauses during prayer time.</string>
+    <string name="protection_guard" formatted="false">Protect the app in Settings</string>
+    <string name="protection_guardHint" formatted="false">Closes the Settings pages that would switch the app off: its accessibility switch, App info (force stop, clear data, uninstall) and Device admin.</string>
+    <string name="protection_autoTime" formatted="false">Require automatic date &amp; time</string>
+    <string name="protection_autoTimeHint" formatted="false">While it is off, apps and sites with a time limit or allowed hours stay closed, so moving the clock can’t give you a new day.</string>
+    <string name="protection_autoTimeIsOff" formatted="false">Automatic date &amp; time is off on this phone right now.</string>
+    <string name="protection_suspend" formatted="false">Turn off protection for {n} minutes</string>
+    <string name="protection_suspendHint" formatted="false">For when you really want to switch the app off or uninstall it.</string>
+    <string name="protection_suspended" formatted="false">Protection is off until {time}. Settings pages of the app are open.</string>
+    <string name="protection_resume" formatted="false">Turn it back on now</string>
+    <string name="suspend_title" formatted="false">Turn off protection?</string>
+    <string name="suspend_r1" formatted="false">for {n} minutes the app’s Settings pages are open: its accessibility switch, force stop, clear data and uninstall all work</string>
+    <string name="suspend_note" formatted="false">After {n} minutes protection comes back by itself.</string>
+    <string name="suspend_confirm" formatted="false">Turn off for {n} min</string>
+    <string name="admin_title" formatted="false">Device admin</string>
+    <string name="admin_on" formatted="false">On: the app can’t be uninstalled until this is switched off.</string>
+    <string name="admin_off" formatted="false">Off: the app can be uninstalled from the home screen with a long press.</string>
+    <string name="admin_activate" formatted="false">Switch on</string>
+    <string name="admin_deactivate" formatted="false">Switch off</string>
+    <string name="admin_offTitle" formatted="false">Switch off device admin?</string>
+    <string name="admin_offR1" formatted="false">the app could then be uninstalled from the home screen</string>
+    <string name="block_clock" formatted="false">Automatic date &amp; time is off. Apps and sites with a time limit or allowed hours stay closed until you switch it back on.</string>
+    <string name="block_clockOpen" formatted="false">Open Date &amp; time</string>
+    <string name="block_guard" formatted="false">This Settings page is protected. To switch off or uninstall the app, open it: Settings › Protection.</string>
+    <string name="block_guardOpen" formatted="false">Open Time Is a Sword</string>
+    <string name="recovery_title" formatted="false">If something goes wrong</string>
+    <string name="recovery_text" formatted="false">Restart the phone in Safe Mode (hold the power button, then long-press Power off and tap Safe mode). Apps you installed are switched off there, so you can uninstall this one normally; if Android asks, switch off its device admin first. Then restart the phone normally.</string>
+    <string name="status_title" formatted="false">Protection status</string>
+    <string name="chk_ok" formatted="false">Done</string>
+    <string name="chk_missing" formatted="false">Not done</string>
+    <string name="chk_fix" formatted="false">Fix</string>
+    <string name="chk_unused" formatted="false">Keep the app active when unused</string>
+    <string name="chk_unusedHint" formatted="false">Android pauses apps you don’t open for a while and takes back their permissions. This one works in the background, so it must never be paused.</string>
+    <string name="chk_unusedFix" formatted="false">Open App info</string>
+    <string name="chk_restricted" formatted="false">Allow restricted settings</string>
+    <string name="chk_restrictedHint" formatted="false">Android blocks the accessibility switch of apps installed from a file until you allow it once.</string>
+    <string name="chk_restrictedFix" formatted="false">Open App info</string>
+    <string name="chk_a11y" formatted="false">Accessibility service</string>
+    <string name="chk_a11yHint" formatted="false">This is how the app sees which app or website is on screen, so it can count time and block. Without it nothing is blocked.</string>
+    <string name="chk_a11yFix" formatted="false">Open Accessibility settings</string>
+    <string name="chk_notif" formatted="false">Notifications</string>
+    <string name="chk_notifHint" formatted="false">So the app can tell you if protection stops working.</string>
+    <string name="chk_notifFix" formatted="false">Allow notifications</string>
+    <string name="chk_battery" formatted="false">No battery restrictions</string>
+    <string name="chk_batteryHint" formatted="false">Battery savers stop background apps. If this one is stopped, nothing is blocked. It uses very little battery.</string>
+    <string name="chk_batteryFix" formatted="false">Allow</string>
+    <string name="chk_alarms" formatted="false">Alarms &amp; reminders</string>
+    <string name="chk_alarmsHint" formatted="false">So limits and prayer locks start at the exact second, even when the phone is asleep.</string>
+    <string name="chk_alarmsFix" formatted="false">Allow</string>
+    <string name="chk_adminHint" formatted="false">Recommended: the app can’t be uninstalled on a whim. You can switch it off any time inside the app.</string>
+    <string name="ob_back" formatted="false">Back</string>
+    <string name="ob_next" formatted="false">Next</string>
+    <string name="ob_skip" formatted="false">Skip for now</string>
+    <string name="ob_start" formatted="false">Get started</string>
+    <string name="ob_finish" formatted="false">Finish</string>
+    <string name="ob_done" formatted="false">✓ Done</string>
+    <string name="ob_optional" formatted="false">Optional, but recommended.</string>
+    <string name="ob_welcome" formatted="false">Choose the apps and websites that take your time. Give each one a rule: always blocked, a daily limit, or allowed hours only. At prayer time everything closes. When something is closed, you see a hadith, a saying of the salaf or a line of poetry about the value of time.</string>
+    <string name="ob_privacy" formatted="false">Everything stays on your phone: no account, no tracking, nothing is sent anywhere. The only network call is the optional prayer times for a typed city.</string>
+    <string name="ob_steps" formatted="false">A few steps follow so Android lets the app work. Each one opens the right screen; come back here after each.</string>
+    <string name="ob_unusedSteps" formatted="false">On App info, switch off “Manage app if unused” (or “Pause app activity if unused”), then come back.</string>
+    <string name="ob_restrictedSteps" formatted="false">Do this if the app’s switch in Accessibility is greyed out (“For your security, this setting is currently unavailable”):\n1. Try to switch it on once in the next step.\n2. Come back here and open App info.\n3. Tap ⋮ (top corner) › Allow restricted settings, and confirm with your PIN.\n4. Go to the next step again.</string>
+    <string name="ob_a11ySteps" formatted="false">Open Installed apps (or Downloaded apps) › Time Is a Sword, switch it on and allow. Greyed out? Go back one step.</string>
+    <string name="ob_adminSteps" formatted="false">Android shows its own screen: tap Activate. To uninstall later: Settings › Protection › Turn off protection.</string>
+    <string name="ob_targets" formatted="false">What takes your time?</string>
+    <string name="ob_targetsHint" formatted="false">Switch some on now. You can change each one’s rule later in Apps.</string>
+    <string name="ob_targetsNone" formatted="false">None of the preset apps is installed. Add apps and websites later in Apps.</string>
+    <string name="ob_quickLimit" formatted="false">{n} min a day</string>
+    <string name="ob_targetsApply" formatted="false">Switch on {n}</string>
+    <string name="ob_doneAll" formatted="false">You’re fully protected</string>
+    <string name="ob_doneMissing" formatted="false">Almost there</string>
+    <string name="ob_doneHint" formatted="false">You can see and fix all of this any time in Settings › Protection status.</string>
+    <string name="banner_off" formatted="false">Protection is off: nothing is blocked.</string>
+    <string name="oem_samsung" formatted="false">Samsung: Settings › Battery › Background usage limits › Never sleeping apps › + › Time Is a Sword. The app has no card in Recents, so “Close all” can’t stop it.</string>
+    <string name="oem_xiaomi" formatted="false">Xiaomi / Redmi / POCO: App info › Autostart on, and Battery saver › No restrictions. In Recents, pull the app’s card down to lock it.</string>
+    <string name="oem_oppo" formatted="false">OPPO / realme / OnePlus: App info › Battery › Allow background activity and Allow auto launch.</string>
+    <string name="oem_vivo" formatted="false">vivo / iQOO: Settings › Battery › Background power consumption › allow Time Is a Sword, and switch Autostart on.</string>
+    <string name="oem_huawei" formatted="false">Huawei / Honor: Settings › Battery › App launch › Time Is a Sword › Manage manually, with all three switches on.</string>
+    <string name="oem_other" formatted="false">Some phones stop background apps on their own. If protection keeps switching off, look up your phone at dontkillmyapp.com.</string>
+    <string name="status_channel" formatted="false">Status</string>
+    <string name="status_protected" formatted="false">Protected</string>
+    <string name="status_onCount" formatted="false">{n} apps &amp; sites have rules</string>
+    <string name="status_nothingOn" formatted="false">No app or site is switched on yet</string>
+    <string name="status_left" formatted="false">{dur} left today</string>
+    <string name="status_until" formatted="false">Allowed until {time}</string>
+    <string name="status_paused" formatted="false">Paused until {time}</string>
+    <string name="status_noLimit" formatted="false">No limit right now</string>
+    <string name="about_open" formatted="false">Who made it, links, licences, and what to do if something goes wrong.</string>
+    <string name="about_descApp" formatted="false">Blocks or time-limits distracting apps and websites, closes everything at prayer time, and reminds you of the value of time with a hadith, a saying of the salaf or a line of poetry. All your data stays on your phone.</string>
+    <string name="about_credits" formatted="false">Fonts: IBM Plex Sans Arabic and Amiri (SIL OFL). Prayer times: Adhan (MIT) and api.aladhan.com. Brand logos: Simple Icons (CC0); they belong to their owners.</string>
+    <string name="backup_title" formatted="false">Backup</string>
+    <string name="backup_hint" formatted="false">Save your apps, sites, groups, rules and settings to a file, or load them from one. Loading works like saving: anything looser needs confirmation.</string>
+    <string name="backup_export" formatted="false">Export</string>
+    <string name="backup_import" formatted="false">Import</string>
+    <string name="backup_exported" formatted="false">Backup saved.</string>
+    <string name="backup_writeFailed" formatted="false">Couldn’t save the file.</string>
+    <string name="backup_invalid" formatted="false">This file isn’t a Time Is a Sword backup.</string>
+    <string name="backup_imported" formatted="false">Backup loaded.</string>
+    <string name="backup_same" formatted="false">The backup is the same as your current settings.</string>
+    <string name="backup_loosenTitle" formatted="false">Load a looser backup?</string>
+</resources>

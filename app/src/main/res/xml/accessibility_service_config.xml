@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plan §8.1. Not an assistive tool (isAccessibilityTool=false): it reads which
+     app and website are on screen to enforce the user's own limits. -->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowsChanged|typeWindowContentChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagReportViewIds|flagRetrieveInteractiveWindows|flagIncludeNotImportantViews"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/a11y_description"
+    android:summary="@string/a11y_summary"
+    android:isAccessibilityTool="false"
+    android:notificationTimeout="100" />

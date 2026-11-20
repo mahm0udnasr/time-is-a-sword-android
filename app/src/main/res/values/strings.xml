@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Time Is a Sword</string>
+    <string name="a11y_summary">Blocks and time-limits the apps and websites you chose.</string>
+    <string name="a11y_description">Time Is a Sword uses this service to see which app is on screen and which website is open in your browser, so it can count your time and block what you chose to limit. Everything stays on your phone: nothing is collected or sent anywhere.</string>
+    <string name="debug_title">Debug</string>
+    <string name="debug_dump">Dump nodes in 5 s</string>
+    <string name="debug_dump_hint">Switch to the app to inspect within 5 seconds.</string>
+    <string name="warn_minutes">%1$d min left</string>
+    <string name="warn_seconds">%1$s left</string>
+    <string name="warn_limit">%1$s · daily limit</string>
+    <string name="warn_until">%1$s · allowed until %2$s</string>
+    <string name="block_browser">This browser can’t be read, so it stays closed while website limits are on.</string>
+    <string name="admin_explain">Stops the app from being uninstalled on a whim. You can switch it off any time inside the app: Settings › Protection.</string>
+    <string name="admin_disableWarning">To switch off Time Is a Sword, use the app: Settings › Protection › Turn off protection.</string>
+    <string name="health_channel">Protection</string>
+    <string name="health_title">Protection is off</string>
+    <string name="health_text">Time Is a Sword’s accessibility service is off, so nothing is blocked. Tap to switch it back on.</string>
+</resources>

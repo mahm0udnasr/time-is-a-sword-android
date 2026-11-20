@@ -1,0 +1,322 @@
+[
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "15-01-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:21",
+   "dhuhr": "12:04",
+   "asr": "14:57",
+   "maghrib": "17:17",
+   "isha": "18:39"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "15-04-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "03:58",
+   "dhuhr": "11:55",
+   "asr": "15:29",
+   "maghrib": "18:22",
+   "isha": "19:43"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "15-07-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:21",
+   "dhuhr": "13:01",
+   "asr": "16:38",
+   "maghrib": "19:58",
+   "isha": "21:29"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "25-10-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:36",
+   "dhuhr": "12:39",
+   "asr": "15:50",
+   "maghrib": "18:14",
+   "isha": "19:32"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:53",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:18"
+  }
+ },
+ {
+  "place": "kafr_el_zayat",
+  "lat": 30.82,
+  "lng": 30.82,
+  "date": "15-01-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:23",
+   "dhuhr": "12:06",
+   "asr": "14:57",
+   "maghrib": "17:17",
+   "isha": "18:40"
+  }
+ },
+ {
+  "place": "kafr_el_zayat",
+  "lat": 30.82,
+  "lng": 30.82,
+  "date": "15-04-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "03:58",
+   "dhuhr": "11:57",
+   "asr": "15:32",
+   "maghrib": "18:25",
+   "isha": "19:46"
+  }
+ },
+ {
+  "place": "kafr_el_zayat",
+  "lat": 30.82,
+  "lng": 30.82,
+  "date": "15-07-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:20",
+   "dhuhr": "13:03",
+   "asr": "16:41",
+   "maghrib": "20:01",
+   "isha": "21:33"
+  }
+ },
+ {
+  "place": "kafr_el_zayat",
+  "lat": 30.82,
+  "lng": 30.82,
+  "date": "25-10-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:38",
+   "dhuhr": "12:41",
+   "asr": "15:51",
+   "maghrib": "18:15",
+   "isha": "19:34"
+  }
+ },
+ {
+  "place": "kafr_el_zayat",
+  "lat": 30.82,
+  "lng": 30.82,
+  "date": "19-11-2026",
+  "method": 5,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:55",
+   "dhuhr": "11:42",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:19"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 1,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:00",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:20"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 2,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:14",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:06"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 3,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:00",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:16"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 4,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:58",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:27"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 9,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:00",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:18"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 10,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:00",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:27"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 11,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:51",
+   "dhuhr": "11:40",
+   "asr": "14:38",
+   "maghrib": "16:57",
+   "isha": "18:20"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 13,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "05:00",
+   "dhuhr": "11:45",
+   "asr": "14:42",
+   "maghrib": "17:04",
+   "isha": "18:16"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 16,
+  "school": 0,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:59",
+   "dhuhr": "11:43",
+   "asr": "14:38",
+   "maghrib": "17:00",
+   "isha": "18:21"
+  }
+ },
+ {
+  "place": "cairo",
+  "lat": 30.04,
+  "lng": 31.24,
+  "date": "19-11-2026",
+  "method": 5,
+  "school": 1,
+  "zone": "Africa/Cairo",
+  "times": {
+   "fajr": "04:53",
+   "dhuhr": "11:40",
+   "asr": "15:21",
+   "maghrib": "16:57",
+   "isha": "18:18"
+  }
+ }
+]

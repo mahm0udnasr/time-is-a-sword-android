@@ -1,0 +1,32 @@
+# Gradle / build
+.gradle/
+build/
+/build
+**/build/
+.kotlin/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing — never commit
+*.jks
+*.keystore
+keystore.properties
+
+# IDE (keep shared run configs / code style if added later)
+.idea/*
+!.idea/codeStyles/
+!.idea/runConfigurations/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Kept local only (device serial, personal notes): the build plan / progress log and the adb helper.
+CLAUDE.md
+tools/adb/

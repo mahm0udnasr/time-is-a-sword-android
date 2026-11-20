@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- No policies: an active admin can't be uninstalled until it is switched off (§10.3). -->
+<device-admin>
+    <uses-policies />
+</device-admin>

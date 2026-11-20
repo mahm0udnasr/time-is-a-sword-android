@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- GENERATED from the extension's shared/i18n.js by tools/i18n/convert.mjs. Do not edit by hand. -->
+<resources>
+    <string name="x_app_name" formatted="false">Time Is a Sword</string>
+    <string name="x_menu_open" formatted="false">Open menu</string>
+    <string name="x_info_label" formatted="false">About this page</string>
+    <string name="x_menu_close" formatted="false">Close menu</string>
+    <string name="x_lang_toggle" formatted="false">ع</string>
+    <string name="x_lang_toggleLabel" formatted="false">التبديل إلى العربية</string>
+    <string name="x_theme_label" formatted="false">Theme</string>
+    <string name="x_theme_system" formatted="false">Match system</string>
+    <string name="x_theme_light" formatted="false">Light</string>
+    <string name="x_theme_dark" formatted="false">Dark</string>
+    <string name="x_nav_label" formatted="false">Settings sections</string>
+    <string name="x_nav_overview" formatted="false">Overview</string>
+    <string name="x_nav_sites" formatted="false">Sites</string>
+    <string name="x_nav_groups" formatted="false">Groups</string>
+    <string name="x_page_title" formatted="false">Time Is a Sword · Settings</string>
+    <string name="x_overview_sub" formatted="false">Today at a glance.</string>
+    <string name="x_stat_time" formatted="false">Time today</string>
+    <string name="x_stat_blocked" formatted="false">Blocked now</string>
+    <string name="x_stat_pauses" formatted="false">Pauses left</string>
+    <string name="x_today" formatted="false">Today</string>
+    <string name="x_newDayAt" formatted="false">New day at {time}</string>
+    <string name="x_today_empty" formatted="false">No time on your listed sites today.</string>
+    <string name="x_chart_title" formatted="false">Last 7 days</string>
+    <string name="x_chart_filter" formatted="false">Show usage for</string>
+    <string name="x_chart_allSites" formatted="false">All sites</string>
+    <string name="x_chart_aria" formatted="false">Active time per day for {what}, last 7 days</string>
+    <string name="x_chart_today" formatted="false">Today</string>
+    <string name="x_chart_on" formatted="false">{time} on {site}</string>
+    <string name="x_chart_inTotal" formatted="false">{time} in total</string>
+    <string name="x_badge_group" formatted="false">Group</string>
+    <string name="x_badge_paused" formatted="false">Paused</string>
+    <string name="x_badge_limited" formatted="false">Limited</string>
+    <string name="x_badge_allowedNow" formatted="false">Allowed now</string>
+    <string name="x_badge_allowed" formatted="false">Allowed</string>
+    <string name="x_badge_off" formatted="false">Off</string>
+    <string name="x_reason_blocked" formatted="false">Blocked</string>
+    <string name="x_reason_limit" formatted="false">Time is up</string>
+    <string name="x_reason_schedule" formatted="false">Outside hours</string>
+    <string name="x_usage_today" formatted="false">{time} today</string>
+    <string name="x_sites_sub" formatted="false">Each site covers its subdomains. Days without a rule are unrestricted. Stricter changes apply at once; looser ones need confirmation.</string>
+    <string name="x_sites_add" formatted="false">Add a site, e.g. youtube.com</string>
+    <string name="x_sites_addLabel" formatted="false">Site to add</string>
+    <string name="x_add" formatted="false">Add</string>
+    <string name="x_search" formatted="false">Search</string>
+    <string name="x_sites_searchLabel" formatted="false">Search sites</string>
+    <string name="x_sites_empty" formatted="false">No sites yet. Add one above.</string>
+    <string name="x_sites_noMatch" formatted="false">No site matches “{q}”.</string>
+    <string name="x_site_apply" formatted="false">Apply rules to {site}</string>
+    <string name="x_site_edit" formatted="false">Edit rules for {site}</string>
+    <string name="x_site_remove" formatted="false">Remove {site}</string>
+    <string name="x_site_switchOffTitle" formatted="false">Switch off {site}?</string>
+    <string name="x_site_switchedOn" formatted="false">{site} switched on</string>
+    <string name="x_site_switchedOff" formatted="false">{site} switched off</string>
+    <string name="x_site_removeTitle" formatted="false">Remove {site}?</string>
+    <string name="x_site_removed" formatted="false">{site} removed</string>
+    <string name="x_site_added" formatted="false">{site} added and blocked. Use the pencil to give it a time limit or hours instead.</string>
+    <string name="x_site_loosenTitle" formatted="false">Loosen the rules for {site}?</string>
+    <string name="x_rules_groupOnly" formatted="false">Group rule only</string>
+    <string name="x_rules_trackedOnly" formatted="false">No rule: time is tracked only</string>
+    <string name="x_err_badDomain" formatted="false">That does not look like a website address.</string>
+    <string name="x_err_dupDomain" formatted="false">{site} is already in the list.</string>
+    <string name="x_groups_sub" formatted="false">Sites in a group share one budget and schedule, so switching between them doesn’t give extra time. A member must satisfy both its own rule and the group’s.</string>
+    <string name="x_groups_add" formatted="false">New group, e.g. Messaging</string>
+    <string name="x_groups_addLabel" formatted="false">New group name</string>
+    <string name="x_groups_empty" formatted="false">No groups yet. A group like “Messaging” for WhatsApp + Telegram stops you switching apps to dodge a limit.</string>
+    <string name="x_group_apply" formatted="false">Apply the {name} group</string>
+    <string name="x_group_edit" formatted="false">Edit group {name}</string>
+    <string name="x_group_remove" formatted="false">Remove group {name}</string>
+    <string name="x_group_switchOffTitle" formatted="false">Switch off the “{name}” group?</string>
+    <string name="x_group_switchedOn" formatted="false">“{name}” switched on</string>
+    <string name="x_group_switchedOff" formatted="false">“{name}” switched off</string>
+    <string name="x_group_removeTitle" formatted="false">Remove the “{name}” group?</string>
+    <string name="x_group_removed" formatted="false">“{name}” removed</string>
+    <string name="x_group_noSites" formatted="false">No sites yet: edit to add some</string>
+    <string name="x_group_added" formatted="false">Group “{name}” added with 30 min/day. Use the pencil to add sites.</string>
+    <string name="x_group_name" formatted="false">Name</string>
+    <string name="x_group_nameLabel" formatted="false">Group name</string>
+    <string name="x_group_sites" formatted="false">Sites in this group</string>
+    <string name="x_group_movesHere" formatted="false">(moves here)</string>
+    <string name="x_group_addSitesFirst" formatted="false">Add sites first.</string>
+    <string name="x_group_sharedRules" formatted="false">Shared rules</string>
+    <string name="x_group_loosenTitle" formatted="false">Loosen the “{name}” group?</string>
+    <string name="x_group_label" formatted="false">Group “{name}”</string>
+    <string name="x_err_groupNameEmpty" formatted="false">Type a name for the group.</string>
+    <string name="x_err_groupNameMissing" formatted="false">Give the group a name.</string>
+    <string name="x_err_groupNameDup" formatted="false">There is already a group called “{name}”.</string>
+    <string name="x_save" formatted="false">Save</string>
+    <string name="x_cancel" formatted="false">Cancel</string>
+    <string name="x_dismiss" formatted="false">Dismiss</string>
+    <string name="x_saved" formatted="false">Saved</string>
+    <string name="x_cancelled" formatted="false">Cancelled. Nothing was changed.</string>
+    <string name="x_editor_rulesFor" formatted="false">Rules for {site}</string>
+    <string name="x_editor_noOwnRule" formatted="false">No rule of its own: only the group rule applies.</string>
+    <string name="x_editor_noRule" formatted="false">No rule: the site is never restricted, only its time is tracked.</string>
+    <string name="x_mode_block" formatted="false">Always blocked</string>
+    <string name="x_mode_limit" formatted="false">Daily time limit</string>
+    <string name="x_mode_schedule" formatted="false">Allowed hours only</string>
+    <string name="x_mode_limitSchedule" formatted="false">Time limit within allowed hours</string>
+    <string name="x_re_addRule" formatted="false">+ Add a rule for other days</string>
+    <string name="x_re_daysFor" formatted="false">Days for {label}</string>
+    <string name="x_re_ruleType" formatted="false">Rule type</string>
+    <string name="x_re_minutesLabel" formatted="false">Minutes per day</string>
+    <string name="x_re_minPerDay" formatted="false">min/day</string>
+    <string name="x_re_from" formatted="false">From</string>
+    <string name="x_re_to" formatted="false">to</string>
+    <string name="x_re_until" formatted="false">Until</string>
+    <string name="x_re_removeHours" formatted="false">Remove these hours</string>
+    <string name="x_re_addHours" formatted="false">+ Add hours</string>
+    <string name="x_re_allowedBetween" formatted="false">Allowed between</string>
+    <string name="x_re_removeRule" formatted="false">Remove this rule</string>
+    <string name="x_err_atLeastOneRule" formatted="false">Add at least one rule.</string>
+    <string name="x_err_rulePrefix" formatted="false">Rule {n}: </string>
+    <string name="x_err_pickDay" formatted="false">Pick at least one day.</string>
+    <string name="x_err_dayTwice" formatted="false">{day} is in more than one rule. Each day can have only one rule.</string>
+    <string name="x_err_minutes" formatted="false">Minutes must be a whole number from 0 to 1440.</string>
+    <string name="x_err_oneRange" formatted="false">Add at least one allowed time range.</string>
+    <string name="x_err_bothTimes" formatted="false">Fill in both times of each range.</string>
+    <string name="x_err_sameTime" formatted="false">A time range cannot start and end at the same time ({t}).</string>
+    <string name="x_sum_noRule" formatted="false">No rule</string>
+    <string name="x_sum_blocked" formatted="false">{days}: blocked</string>
+    <string name="x_sum_limit" formatted="false">{days}: {n} min/day</string>
+    <string name="x_sum_schedule" formatted="false">{days}: only {w}</string>
+    <string name="x_sum_limitSchedule" formatted="false">{days}: {n} min within {w}</string>
+    <string name="x_days_every" formatted="false">Every day</string>
+    <string name="x_days_none" formatted="false">No days</string>
+    <string name="x_lo_switchedOff" formatted="false">switched off</string>
+    <string name="x_lo_leavesGroup" formatted="false">leaves the “{name}” group</string>
+    <string name="x_lo_removed" formatted="false">removed</string>
+    <string name="x_lo_ruleRemoved" formatted="false">rule removed</string>
+    <string name="x_lo_unblocked" formatted="false">no longer always blocked</string>
+    <string name="x_lo_limitRemoved" formatted="false">daily limit removed</string>
+    <string name="x_lo_limitRaised" formatted="false">limit raised from {a} to {b} min</string>
+    <string name="x_lo_hoursRemoved" formatted="false">allowed hours removed</string>
+    <string name="x_lo_hoursWidened" formatted="false">allowed hours widened</string>
+    <string name="x_fr_defaultTitle" formatted="false">This change loosens your rules</string>
+    <string name="x_fr_note" formatted="false">This takes effect as soon as you confirm.</string>
+    <string name="x_fr_apply" formatted="false">Apply now</string>
+    <string name="x_fr_confirm" formatted="false">Confirm</string>
+    <string name="x_fr_typeVerse" formatted="false">Type the verse above to continue. Line breaks don’t matter; copy and paste are disabled.</string>
+    <string name="x_fr_typeQuote" formatted="false">Type the reminder above to continue (copy and paste are disabled):</string>
+    <string name="x_fr_typeLabel" formatted="false">Type the reminder exactly</string>
+    <string name="x_fr_wait" formatted="false">Wait {n}s</string>
+    <string name="x_fr_matchesWait" formatted="false">✓ Matches. Wait for the countdown.</string>
+    <string name="x_fr_matches" formatted="false">✓ Matches.</string>
+    <string name="x_fr_wordDiffers" formatted="false">Word {n} differs: expected “{w}”</string>
+    <string name="x_fr_progress" formatted="false">{a} of {b} words</string>
+    <string name="x_pause_unreachable" formatted="false">Could not reach the extension. Try again.</string>
+    <string name="x_pause_notActive" formatted="false">{site} is not an active site in your list.</string>
+    <string name="x_pause_noneLeft" formatted="false">You have used all your pauses for today.</string>
+    <string name="x_pause_title" formatted="false">Pause blocking for {site}?</string>
+    <string name="x_pause_r1" formatted="false">{site} will be allowed for {n} minutes, whatever its rules say.</string>
+    <string name="x_pause_r2" formatted="false">Pauses left today after this one: {n}.</string>
+    <string name="x_pause_note" formatted="false">Its time still counts toward today’s usage.</string>
+    <string name="x_pause_confirm" formatted="false">Pause for {n} min</string>
+    <string name="x_pause_cancelled" formatted="false">Cancelled. No pause was used.</string>
+    <string name="x_pause_done" formatted="false">{site} is paused until {time}. You can go back to its tab.</string>
+    <string name="x_pause_failed" formatted="false">The pause could not be started.</string>
+    <string name="x_pp_openSettings" formatted="false">Open settings</string>
+    <string name="x_pp_inGroup" formatted="false">In “{name}”</string>
+    <string name="x_pp_opens" formatted="false">Opens {when}</string>
+    <string name="x_pp_blockedRule" formatted="false">Blocked while this rule is on</string>
+    <string name="x_pp_byGroup" formatted="false">Blocked by the “{name}” group</string>
+    <string name="x_pp_pauseLeft" formatted="false">of pause left</string>
+    <string name="x_pp_leftToday" formatted="false">left today</string>
+    <string name="x_pp_left" formatted="false">left</string>
+    <string name="x_pp_today" formatted="false">today</string>
+    <string name="x_pp_allowedUntil" formatted="false">Allowed until {time}</string>
+    <string name="x_pp_pausedUntil" formatted="false">Paused until {time}</string>
+    <string name="x_pp_noPauses" formatted="false">No pauses left today</string>
+    <string name="x_pp_pauseBtn" formatted="false">Pause for {n} min · {left} left</string>
+    <string name="x_pp_total" formatted="false">{time} total</string>
+    <string name="x_when_today" formatted="false">today at {time}</string>
+    <string name="x_when_tomorrow" formatted="false">tomorrow at {time}</string>
+    <string name="x_when_day" formatted="false">{day} at {time}</string>
+    <string name="x_dur_h" formatted="false">h</string>
+    <string name="x_dur_m" formatted="false">m</string>
+    <string name="x_dur_s" formatted="false">s</string>
+    <string name="x_blocked_title" formatted="false">Time to pause</string>
+    <string name="x_nav_prayer" formatted="false">Salah First</string>
+    <string name="x_nav_about" formatted="false">About</string>
+    <string name="x_about_sub" formatted="false">Who made this extension, and how to contribute or report a problem.</string>
+    <string name="x_about_madeBy" formatted="false">Made by</string>
+    <string name="x_about_website" formatted="false">Website</string>
+    <string name="x_about_linksLabel" formatted="false">Developer links</string>
+    <string name="x_about_version" formatted="false">Version {v}</string>
+    <string name="x_about_license" formatted="false">Open source (MIT)</string>
+    <string name="x_about_desc" formatted="false">Blocks or time-limits distracting sites, closes every website at prayer time, and reminds you of the value of time with a hadith, a saying of the salaf or a line of poetry. All your data stays on your device.</string>
+    <string name="x_about_source" formatted="false">Source code</string>
+    <string name="x_about_issue" formatted="false">Report a problem</string>
+    <string name="x_about_footer" formatted="false">Made for anyone who wants to guard their time. Please remember us in your duʿāʾ.</string>
+    <string name="x_prayer_sub" formatted="false">A few minutes before each prayer every website closes and a hadith about salah appears; they open again after it.</string>
+    <string name="x_prayer_fajr" formatted="false">Fajr</string>
+    <string name="x_prayer_dhuhr" formatted="false">Dhuhr</string>
+    <string name="x_prayer_asr" formatted="false">Asr</string>
+    <string name="x_prayer_maghrib" formatted="false">Maghrib</string>
+    <string name="x_prayer_isha" formatted="false">Isha</string>
+    <string name="x_prayer_enable" formatted="false">Turn on Salah First</string>
+    <string name="x_prayer_enableHint" formatted="false">When on, every website closes at prayer times, not only the sites in your list.</string>
+    <string name="x_prayer_location" formatted="false">Location and calculation method</string>
+    <string name="x_prayer_address" formatted="false">City or address</string>
+    <string name="x_prayer_addressPh" formatted="false">e.g. Cairo, Egypt</string>
+    <string name="x_prayer_method" formatted="false">Calculation method</string>
+    <string name="x_prayer_school" formatted="false">Asr time</string>
+    <string name="x_prayer_school0" formatted="false">Standard (Shafi‘i, Maliki, Hanbali)</string>
+    <string name="x_prayer_school1" formatted="false">Hanafi</string>
+    <string name="x_prayer_privacy" formatted="false">To get the times, only the city you type, or your approximate location (to about 1 km) if you use your current location, is sent to api.aladhan.com.</string>
+    <string name="x_prayer_locate" formatted="false">Use my location</string>
+    <string name="x_prayer_locating" formatted="false">Finding your location…</string>
+    <string name="x_prayer_here" formatted="false">Your location</string>
+    <string name="x_prayer_typeCity" formatted="false">Type a city instead</string>
+    <string name="x_prayer_or" formatted="false">or type the city</string>
+    <string name="x_prayer_located" formatted="false">Location found.</string>
+    <string name="x_prayer_locDenied" formatted="false">Location access was not allowed. Type your city instead.</string>
+    <string name="x_prayer_locUnavailable" formatted="false">Your location could not be found (location services may be off in the browser). Type your city instead.</string>
+    <string name="x_prayer_locTimeout" formatted="false">Finding your location took too long. Try again or type your city.</string>
+    <string name="x_prayer_timing" formatted="false">Lock length</string>
+    <string name="x_prayer_before" formatted="false">Before the prayer (minutes)</string>
+    <string name="x_prayer_after" formatted="false">After the prayer (minutes)</string>
+    <string name="x_prayer_today" formatted="false">Today’s times</string>
+    <string name="x_prayer_refresh" formatted="false">Refresh times</string>
+    <string name="x_prayer_adjustLabel" formatted="false">Adjust {name} time, minutes</string>
+    <string name="x_prayer_toggleLabel" formatted="false">Lock for {name}</string>
+    <string name="x_prayer_window" formatted="false">Locked {from}–{to}</string>
+    <string name="x_prayer_noTimes" formatted="false">No times yet. Type your city and save.</string>
+    <string name="x_prayer_approx" formatted="false">Approximate times (could not connect)</string>
+    <string name="x_prayer_save" formatted="false">Save</string>
+    <string name="x_prayer_saved" formatted="false">Salah First settings saved</string>
+    <string name="x_prayer_needAddress" formatted="false">Use your location or type your city first to turn on Salah First.</string>
+    <string name="x_prayer_badNumbers" formatted="false">Minutes before: 0–60, after: 0–120, adjustments: −60 to 60.</string>
+    <string name="x_prayer_loosenTitle" formatted="false">Loosen Salah First?</string>
+    <string name="x_prayer_fetching" formatted="false">Getting the times…</string>
+    <string name="x_prayer_fetched" formatted="false">Times updated.</string>
+    <string name="x_prayer_fetchError" formatted="false">Could not get the times: {msg}</string>
+    <string name="x_ps_off" formatted="false">Salah First is off.</string>
+    <string name="x_ps_noAddress" formatted="false">Use your location or type your city to get the prayer times.</string>
+    <string name="x_ps_locked" formatted="false">Websites are closed for {name} until {time}</string>
+    <string name="x_ps_next" formatted="false">Next prayer: {name} {time}</string>
+    <string name="x_ps_nextIn" formatted="false">Websites close in {dur}</string>
+    <string name="x_ps_noNext" formatted="false">No upcoming times yet.</string>
+    <string name="x_pl_off" formatted="false">Salah First switched off</string>
+    <string name="x_pl_location" formatted="false">location or calculation method changed</string>
+    <string name="x_pl_before" formatted="false">minutes before the prayer reduced from {a} to {b}</string>
+    <string name="x_pl_after" formatted="false">minutes after the prayer reduced from {a} to {b}</string>
+    <string name="x_pl_prayerOff" formatted="false">{name}: switched off</string>
+    <string name="x_pl_adjust" formatted="false">{name}: time adjusted from {a} to {b} min</string>
+    <string name="x_blocked_prayerNow" formatted="false">It’s time for {name}</string>
+    <string name="x_blocked_prayerTitle" formatted="false">Salah First</string>
+    <string name="x_method_5" formatted="false">Egyptian General Authority of Survey</string>
+    <string name="x_method_4" formatted="false">Umm Al-Qura, Makkah</string>
+    <string name="x_method_3" formatted="false">Muslim World League</string>
+    <string name="x_method_2" formatted="false">Islamic Society of North America</string>
+    <string name="x_method_1" formatted="false">University of Islamic Sciences, Karachi</string>
+    <string name="x_method_8" formatted="false">Gulf Region</string>
+    <string name="x_method_9" formatted="false">Kuwait</string>
+    <string name="x_method_10" formatted="false">Qatar</string>
+    <string name="x_method_16" formatted="false">Dubai</string>
+    <string name="x_method_23" formatted="false">Ministry of Awqaf, Jordan</string>
+    <string name="x_method_13" formatted="false">Diyanet, Turkey</string>
+    <string name="x_method_12" formatted="false">UOIF, France</string>
+    <string name="x_method_18" formatted="false">Tunisia</string>
+    <string name="x_method_19" formatted="false">Algeria</string>
+    <string name="x_method_21" formatted="false">Ministry of Habous, Morocco</string>
+    <string name="x_method_11" formatted="false">MUIS, Singapore</string>
+    <string name="x_method_15" formatted="false">Moonsighting Committee</string>
+    <string name="x_list_sep" formatted="false">, </string>
+</resources>

@@ -1,0 +1,40 @@
+{
+  "_comment": "Verified on One UI 9 (English): App info, accessibility page, DeviceAdminAdd (deactivate), uninstall dialog. Settings guard (plan §10.2). A window of a listed package is blocked when one of its texts contains this app's label and one text/view id is a marker of a page. {label} = the app's label in Arabic and English. 'equals' is an exact match (ignoring case/spaces): 'Activate' must not match 'Deactivate'. Verify with the Debug screen's dump on the phone, in both system languages.",
+  "packages": [
+    "com.android.settings",
+    "com.samsung.accessibility",
+    "com.google.android.packageinstaller",
+    "com.android.packageinstaller",
+    "com.samsung.android.packageinstaller"
+  ],
+  "pages": [
+    {
+      "name": "accessibility",
+      "equals": ["Use {label}", "استخدام {label}", "{label} shortcut", "About {label}", "اختصار {label}", "حول {label}", "Stop {label}?", "إيقاف {label}؟", "إيقاف {label}?"],
+      "contains": []
+    },
+    {
+      "name": "appInfo",
+      "equals": [
+        "Force stop", "Uninstall", "Clear data", "Clear storage", "Clear cache",
+        "فرض الإيقاف", "فرض الإيقاف؟", "إيقاف إجباري", "إلغاء التثبيت", "مسح البيانات", "مسح ذاكرة التخزين المؤقت", "محو البيانات", "مسح التخزين"
+      ]
+    },
+    {
+      "name": "admin",
+      "equals": [
+        "Deactivate this device admin app", "Deactivate", "Deactivate & uninstall", "Deactivate and uninstall",
+        "إلغاء تنشيط تطبيق مشرف الجهاز هذا", "إلغاء التنشيط", "إلغاء التنشيط وإلغاء التثبيت"
+      ],
+      "contains": ["This admin app is active and allows", "تطبيق المشرف هذا نشط"]
+    },
+    {
+      "name": "uninstall",
+      "contains": ["uninstall this app", "إلغاء تثبيت هذا التطبيق"]
+    },
+    {
+      "name": "runningService",
+      "equals": ["Stop", "إيقاف"]
+    }
+  ]
+}

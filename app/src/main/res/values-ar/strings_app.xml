@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_targets" formatted="false">التطبيقات والمواقع</string>
+    <string name="nav_targets_short" formatted="false">التطبيقات</string>
+    <string name="nav_settings" formatted="false">الإعدادات</string>
+    <string name="targets_sub" formatted="false">كل عنصر خدمة واحدة: تطبيقاتها ومواقعها تتشارك وقتًا واحدًا. الأيام التي بلا قاعدة غير مقيّدة. التغييرات الأشد تُطبَّق فورًا، والأخف تحتاج إلى تأكيد.</string>
+    <string name="targets_search" formatted="false">ابحث في التطبيقات والمواقع</string>
+    <string name="targets_empty" formatted="false">لا شيء هنا بعد. أضف تطبيقًا أو موقعًا.</string>
+    <string name="targets_noMatch" formatted="false">لا شيء يطابق «{q}».</string>
+    <string name="add_app" formatted="false">أضف تطبيقات</string>
+    <string name="add_site" formatted="false">أضف موقعًا</string>
+    <string name="add_preset" formatted="false">أضف من الجاهز</string>
+    <string name="presets_none" formatted="false">كل العناصر الجاهزة موجودة في قائمتك.</string>
+    <string name="picker_title" formatted="false">اختر التطبيقات</string>
+    <string name="picker_search" formatted="false">ابحث في التطبيقات المثبتة</string>
+    <string name="picker_inTarget" formatted="false">ضمن {name}</string>
+    <string name="picker_add" formatted="false">إضافة {n}</string>
+    <string name="picker_none" formatted="false">لا يوجد تطبيق مطابق.</string>
+    <string name="target_added" formatted="false">أُضيف {name} وحُجب. اضغط عليه لتحديد وقت أو ساعات بدلًا من الحجب الكامل.</string>
+    <string name="targets_added" formatted="false">أُضيفت {n} تطبيقات وحُجبت. اضغط على أحدها لتحديد وقت أو ساعات بدلًا من الحجب الكامل.</string>
+    <string name="target_title" formatted="false">تعديل {name}</string>
+    <string name="target_name" formatted="false">الاسم</string>
+    <string name="target_apps" formatted="false">التطبيقات</string>
+    <string name="target_sites" formatted="false">المواقع</string>
+    <string name="target_noApps" formatted="false">لا تطبيقات.</string>
+    <string name="target_noSites" formatted="false">لا مواقع.</string>
+    <string name="target_addSite" formatted="false">أضف موقعًا، مثل youtube.com</string>
+    <string name="target_group" formatted="false">المجموعة</string>
+    <string name="target_noGroup" formatted="false">بلا مجموعة</string>
+    <string name="target_rules" formatted="false">القواعد</string>
+    <string name="target_delete" formatted="false">حذف</string>
+    <string name="target_notInstalled" formatted="false">غير مثبّت</string>
+    <string name="err_nameEmpty" formatted="false">اكتب اسمًا.</string>
+    <string name="err_dupPackage" formatted="false">{app} موجود في {name} بالفعل.</string>
+    <string name="err_dupDomainIn" formatted="false">{site} موجود في {name} بالفعل.</string>
+    <string name="err_emptyTarget" formatted="false">أضف تطبيقًا أو موقعًا واحدًا على الأقل.</string>
+    <string name="re_everyDay" formatted="false">كل يوم</string>
+    <string name="group_members" formatted="false">التطبيقات والمواقع في هذه المجموعة</string>
+    <string name="protection_title" formatted="false">الحماية</string>
+    <string name="protection_browsers" formatted="false">أغلق المتصفحات التي لا يمكن قراءتها</string>
+    <string name="protection_browsersHint" formatted="false">ما دام لأي موقع قاعدة، يبقى المتصفح الذي لا يمكن قراءة شريط عنوانه مغلقًا، وإلا لتجاوز تغييرُ المتصفح كل قواعد المواقع.</string>
+    <string name="settings_appearance" formatted="false">المظهر</string>
+    <string name="settings_language" formatted="false">اللغة</string>
+    <string name="settings_about" formatted="false">عن التطبيق</string>
+    <string name="lo_appRemoved" formatted="false">حُذف تطبيق {app}</string>
+    <string name="lo_domainRemoved" formatted="false">حُذف موقع {site}</string>
+    <string name="lo_guardOff" formatted="false">أُوقفت حماية الإعدادات</string>
+    <string name="lo_browsersAllowed" formatted="false">سُمح بالمتصفحات التي لا يمكن قراءتها</string>
+    <string name="lo_autoTimeOff" formatted="false">لم يعد الوقت التلقائي مطلوبًا</string>
+    <string name="lo_allowlistAdded" formatted="false">سُمح بـ{app} في وقت الصلاة</string>
+    <string name="fr_noPaste" formatted="false">اكتبه بنفسك، فاللصق معطّل.</string>
+    <string name="target_switchOffTitle" formatted="false">إيقاف {name}؟</string>
+    <string name="target_removeTitle" formatted="false">حذف {name}؟</string>
+    <string name="target_loosenTitle" formatted="false">تخفيف قواعد {name}؟</string>
+    <string name="protection_loosenTitle" formatted="false">تخفيف الحماية؟</string>
+    <string name="usage_none" formatted="false">—</string>
+    <string name="today_blockedUntil" formatted="false">{reason} · يُفتح {when}</string>
+    <string name="pause_done" formatted="false">سُمح بـ{site} حتى {time}.</string>
+    <string name="salah_sub" formatted="false">قبل كل صلاة بدقائق وحتى ما بعدها تُغلق كل التطبيقات، إلا المسموح بها، وكل المواقع، ويظهر حديث عن الصلاة، ثم تُفتح من جديد.</string>
+    <string name="salah_enableHint" formatted="false">عند التفعيل تُغلق كل التطبيقات والمواقع في أوقات الصلاة، لا التي في قائمتك فقط. الاتصال والرسائل والتطبيقات المسموح بها تبقى مفتوحة.</string>
+    <string name="salah_privacy" formatted="false">مواقيت «موقعك الحالي» تُحسب على هاتفك، ولا يغادره موقعك. إن كتبت مدينة تُجلب مواقيتها من api.aladhan.com شهرًا بشهر، ولا يُرسَل إلا اسم المدينة وطريقة الحساب.</string>
+    <string name="salah_locked" formatted="false">كل شيء مغلق الآن لصلاة {name} حتى {time}</string>
+    <string name="salah_nextIn" formatted="false">يبدأ الإغلاق بعد {dur}</string>
+    <string name="salah_noTimes" formatted="false">لا توجد مواقيت بعد. حدّد موقعك أو اكتب مدينتك واحفظ.</string>
+    <string name="salah_cityNotFound" formatted="false">لم يُعثر على هذه المدينة. اكتبها مع الدولة، مثل: القاهرة، مصر.</string>
+    <string name="salah_offline" formatted="false">لا يوجد اتصال بالإنترنت. جلب مواقيت مدينة يحتاج اتصالًا (مرة كل شهر تقريبًا)، أو استخدم موقعك الحالي.</string>
+    <string name="salah_locOff" formatted="false">خدمة الموقع متوقفة في الهاتف. شغّلها أو اكتب مدينتك.</string>
+    <string name="salah_locFailed" formatted="false">تعذّر تحديد موقعك. حاول مرة أخرى أو اكتب مدينتك.</string>
+    <string name="salah_locDenied" formatted="false">لم يُسمح بالوصول إلى الموقع. اكتب مدينتك بدلًا من ذلك.</string>
+    <string name="allow_title" formatted="false">مفتوح وقت الصلاة</string>
+    <string name="allow_hint" formatted="false">تبقى هذه التطبيقات مفتوحة أثناء الإغلاق. المتصفحات تبقى مغلقة على كل المواقع.</string>
+    <string name="allow_defaults" formatted="false">تطبيقات الهاتف الأساسية</string>
+    <string name="allow_yours" formatted="false">أضفتها أنت (مثل تطبيقات القرآن والأذكار)</string>
+    <string name="allow_none" formatted="false">لم تُضف شيئًا.</string>
+    <string name="allow_add" formatted="false">أضف تطبيقًا</string>
+    <string name="allow_remove" formatted="false">إزالة {app}</string>
+    <string name="allow_loosenTitle" formatted="false">السماح بتطبيقات وقت الصلاة؟</string>
+    <string name="pause_prayer" formatted="false">لا إيقاف مؤقت في وقت الصلاة.</string>
+    <string name="protection_guard" formatted="false">حماية التطبيق في الإعدادات</string>
+    <string name="protection_guardHint" formatted="false">يغلق صفحات الإعدادات التي توقف التطبيق: مفتاح إمكانية الوصول، ومعلومات التطبيق (فرض الإيقاف، مسح البيانات، إلغاء التثبيت)، ومشرف الجهاز.</string>
+    <string name="protection_autoTime" formatted="false">اشتراط التاريخ والوقت التلقائيين</string>
+    <string name="protection_autoTimeHint" formatted="false">ما دام متوقفًا تبقى التطبيقات والمواقع ذات الحد اليومي أو الساعات المسموحة مغلقة، فلا يمنحك تغيير الساعة يومًا جديدًا.</string>
+    <string name="protection_autoTimeIsOff" formatted="false">التاريخ والوقت التلقائيان متوقفان الآن في هذا الهاتف.</string>
+    <string name="protection_suspend" formatted="false">إيقاف الحماية {n} دقائق</string>
+    <string name="protection_suspendHint" formatted="false">لمن أراد حقًّا إيقاف التطبيق أو إلغاء تثبيته.</string>
+    <string name="protection_suspended" formatted="false">الحماية متوقفة حتى {time}، وصفحات التطبيق في الإعدادات مفتوحة.</string>
+    <string name="protection_resume" formatted="false">إعادتها الآن</string>
+    <string name="suspend_title" formatted="false">إيقاف الحماية؟</string>
+    <string name="suspend_r1" formatted="false">تُفتح صفحات التطبيق في الإعدادات {n} دقائق: مفتاح إمكانية الوصول وفرض الإيقاف ومسح البيانات وإلغاء التثبيت</string>
+    <string name="suspend_note" formatted="false">بعد {n} دقائق تعود الحماية وحدها.</string>
+    <string name="suspend_confirm" formatted="false">إيقافها {n} د</string>
+    <string name="admin_title" formatted="false">مشرف الجهاز</string>
+    <string name="admin_on" formatted="false">مفعّل: لا يمكن إلغاء تثبيت التطبيق حتى يُلغى تفعيله.</string>
+    <string name="admin_off" formatted="false">غير مفعّل: يمكن إلغاء تثبيت التطبيق من الشاشة الرئيسية بضغطة مطوّلة.</string>
+    <string name="admin_activate" formatted="false">تفعيل</string>
+    <string name="admin_deactivate" formatted="false">إلغاء التفعيل</string>
+    <string name="admin_offTitle" formatted="false">إلغاء تفعيل مشرف الجهاز؟</string>
+    <string name="admin_offR1" formatted="false">سيمكن عندها إلغاء تثبيت التطبيق من الشاشة الرئيسية</string>
+    <string name="block_clock" formatted="false">التاريخ والوقت التلقائيان متوقفان. تبقى التطبيقات والمواقع ذات الحد اليومي أو الساعات المسموحة مغلقة حتى تعيد تشغيلهما.</string>
+    <string name="block_clockOpen" formatted="false">فتح إعدادات التاريخ والوقت</string>
+    <string name="block_guard" formatted="false">هذه الصفحة من الإعدادات محمية. لإيقاف التطبيق أو إلغاء تثبيته افتحه: الإعدادات › الحماية.</string>
+    <string name="block_guardOpen" formatted="false">فتح «الوقت سيف»</string>
+    <string name="recovery_title" formatted="false">إن حدث خطأ</string>
+    <string name="recovery_text" formatted="false">أعد تشغيل الهاتف في الوضع الآمن (اضغط زر التشغيل مطولًا، ثم اضغط مطولًا على «إيقاف التشغيل» واختر «الوضع الآمن»). تتوقف فيه التطبيقات التي ثبّتّها، فتلغي تثبيت هذا التطبيق كالمعتاد، وإن طلب أندرويد فألغِ تفعيل مشرف الجهاز أولًا. ثم أعد تشغيل الهاتف كالمعتاد.</string>
+    <string name="status_title" formatted="false">حالة الحماية</string>
+    <string name="chk_ok" formatted="false">تم</string>
+    <string name="chk_missing" formatted="false">لم يتم</string>
+    <string name="chk_fix" formatted="false">إصلاح</string>
+    <string name="chk_unused" formatted="false">إبقاء التطبيق نشطًا وإن لم يُفتح</string>
+    <string name="chk_unusedHint" formatted="false">يوقف أندرويد التطبيقات التي لا تفتحها مدة ويسحب أذوناتها. هذا التطبيق يعمل في الخلفية، فلا ينبغي أن يُوقف أبدًا.</string>
+    <string name="chk_unusedFix" formatted="false">فتح معلومات التطبيق</string>
+    <string name="chk_restricted" formatted="false">السماح بالإعدادات المقيدة</string>
+    <string name="chk_restrictedHint" formatted="false">يمنع أندرويد مفتاح إمكانية الوصول للتطبيقات المثبتة من ملف حتى تسمح بذلك مرة واحدة.</string>
+    <string name="chk_restrictedFix" formatted="false">فتح معلومات التطبيق</string>
+    <string name="chk_a11y" formatted="false">خدمة إمكانية الوصول</string>
+    <string name="chk_a11yHint" formatted="false">بها يعرف التطبيق ما على الشاشة من تطبيق أو موقع، فيحسب الوقت ويحجب. وبدونها لا يُحجب شيء.</string>
+    <string name="chk_a11yFix" formatted="false">فتح إعدادات إمكانية الوصول</string>
+    <string name="chk_notif" formatted="false">الإشعارات</string>
+    <string name="chk_notifHint" formatted="false">ليخبرك التطبيق إن توقفت الحماية عن العمل.</string>
+    <string name="chk_notifFix" formatted="false">السماح بالإشعارات</string>
+    <string name="chk_battery" formatted="false">بلا قيود على البطارية</string>
+    <string name="chk_batteryHint" formatted="false">موفّر البطارية يوقف التطبيقات في الخلفية، وإن توقف هذا لم يُحجب شيء. استهلاكه للبطارية قليل جدًا.</string>
+    <string name="chk_batteryFix" formatted="false">سماح</string>
+    <string name="chk_alarms" formatted="false">المنبهات والتذكيرات</string>
+    <string name="chk_alarmsHint" formatted="false">لتبدأ الحدود وأوقات الصلاة في ثانيتها تمامًا ولو كان الهاتف نائمًا.</string>
+    <string name="chk_alarmsFix" formatted="false">سماح</string>
+    <string name="chk_adminHint" formatted="false">يُنصح به: لا يمكن إلغاء تثبيت التطبيق في لحظة ضعف، ويمكنك إلغاؤه متى شئت من داخل التطبيق.</string>
+    <string name="ob_back" formatted="false">رجوع</string>
+    <string name="ob_next" formatted="false">التالي</string>
+    <string name="ob_skip" formatted="false">تخطٍّ الآن</string>
+    <string name="ob_start" formatted="false">لنبدأ</string>
+    <string name="ob_finish" formatted="false">إنهاء</string>
+    <string name="ob_done" formatted="false">✓ تم</string>
+    <string name="ob_optional" formatted="false">اختياري، لكنه مستحسن.</string>
+    <string name="ob_welcome" formatted="false">اختر التطبيقات والمواقع التي تأخذ وقتك، وضع لكلٍّ منها قاعدته: حجب دائم، أو حد يومي، أو ساعات مسموحة فقط. وفي وقت الصلاة يُغلق كل شيء. وحين يُغلق شيء ترى حديثًا أو أثرًا عن السلف أو بيت شعر عن قيمة الوقت.</string>
+    <string name="ob_privacy" formatted="false">كل شيء يبقى على هاتفك: لا حساب ولا تتبّع ولا يُرسل شيء إلى أي مكان. الاتصال الوحيد بالإنترنت هو مواقيت الصلاة لمدينة تكتبها، إن اخترت ذلك.</string>
+    <string name="ob_steps" formatted="false">تليها خطوات قليلة ليسمح أندرويد للتطبيق بالعمل. كل خطوة تفتح الشاشة المطلوبة، ثم ارجع إلى هنا.</string>
+    <string name="ob_unusedSteps" formatted="false">في معلومات التطبيق أوقف «إدارة التطبيق في حال عدم استخدامه» (أو «إيقاف نشاط التطبيق مؤقتًا إن لم يُستخدم»)، ثم ارجع.</string>
+    <string name="ob_restrictedSteps" formatted="false">افعل هذا إن كان مفتاح التطبيق في إمكانية الوصول رماديًا («لأمانك، هذا الإعداد غير متاح حاليًا»):\n1. حاول تشغيله مرة في الخطوة التالية.\n2. ارجع إلى هنا وافتح معلومات التطبيق.\n3. اضغط ⋮ (في الزاوية العليا) › السماح بالإعدادات المقيدة، وأكّد برمزك.\n4. انتقل إلى الخطوة التالية مرة أخرى.</string>
+    <string name="ob_a11ySteps" formatted="false">افتح التطبيقات المثبتة (أو المنزّلة) › الوقت سيف، وشغّله ووافق. رمادي؟ ارجع خطوة.</string>
+    <string name="ob_adminSteps" formatted="false">يعرض أندرويد شاشته: اضغط «تنشيط». ولإلغاء التثبيت لاحقًا: الإعدادات › الحماية › إيقاف الحماية.</string>
+    <string name="ob_targets" formatted="false">ما الذي يأخذ وقتك؟</string>
+    <string name="ob_targetsHint" formatted="false">شغّل بعضها الآن، ويمكنك تغيير قاعدة كلٍّ منها لاحقًا في التطبيقات.</string>
+    <string name="ob_targetsNone" formatted="false">لا شيء من التطبيقات الجاهزة مثبّت. أضف التطبيقات والمواقع لاحقًا في التطبيقات.</string>
+    <string name="ob_quickLimit" formatted="false">{n} د في اليوم</string>
+    <string name="ob_targetsApply" formatted="false">تشغيل {n}</string>
+    <string name="ob_doneAll" formatted="false">أنت محميّ تمامًا</string>
+    <string name="ob_doneMissing" formatted="false">بقي القليل</string>
+    <string name="ob_doneHint" formatted="false">يمكنك رؤية هذا كله وإصلاحه متى شئت في الإعدادات › حالة الحماية.</string>
+    <string name="banner_off" formatted="false">الحماية متوقفة: لا يُحجب شيء.</string>
+    <string name="oem_samsung" formatted="false">سامسونج: الإعدادات › البطارية › حدود استخدام الخلفية › التطبيقات التي لا تنام أبدًا › + › الوقت سيف. وليس للتطبيق بطاقة في التطبيقات الأخيرة، فلا يوقفه «إغلاق الكل».</string>
+    <string name="oem_xiaomi" formatted="false">شاومي / ريدمي / بوكو: معلومات التطبيق › التشغيل التلقائي، وموفّر البطارية › بلا قيود. وفي التطبيقات الأخيرة اسحب بطاقة التطبيق للأسفل لقفلها.</string>
+    <string name="oem_oppo" formatted="false">أوبو / ريلمي / ون بلس: معلومات التطبيق › البطارية › السماح بالنشاط في الخلفية والسماح بالتشغيل التلقائي.</string>
+    <string name="oem_vivo" formatted="false">فيفو / iQOO: الإعدادات › البطارية › استهلاك الطاقة في الخلفية › اسمح للوقت سيف، وشغّل التشغيل التلقائي.</string>
+    <string name="oem_huawei" formatted="false">هواوي / هونر: الإعدادات › البطارية › تشغيل التطبيقات › الوقت سيف › إدارة يدوية، مع تشغيل المفاتيح الثلاثة.</string>
+    <string name="oem_other" formatted="false">بعض الهواتف توقف التطبيقات في الخلفية من تلقاء نفسها. إن ظلت الحماية تتوقف فابحث عن هاتفك في dontkillmyapp.com.</string>
+    <string name="status_channel" formatted="false">الحالة</string>
+    <string name="status_protected" formatted="false">محميّ</string>
+    <string name="status_onCount" formatted="false">{n} من التطبيقات والمواقع لها قواعد</string>
+    <string name="status_nothingOn" formatted="false">لم يُشغَّل أي تطبيق أو موقع بعد</string>
+    <string name="status_left" formatted="false">باقي {dur} اليوم</string>
+    <string name="status_until" formatted="false">مسموح حتى {time}</string>
+    <string name="status_paused" formatted="false">إيقاف مؤقت حتى {time}</string>
+    <string name="status_noLimit" formatted="false">بلا حد الآن</string>
+    <string name="about_open" formatted="false">من صنعه، والروابط، والتراخيص، وما تفعله إن حدث خطأ.</string>
+    <string name="about_descApp" formatted="false">يحجب التطبيقات والمواقع المشتّتة أو يحدّ وقتها، ويغلق كل شيء وقت الصلاة، ويذكّرك بقيمة الوقت بحديث أو أثر أو بيت شعر. وكل بياناتك تبقى على هاتفك.</string>
+    <string name="about_credits" formatted="false">الخطوط: IBM Plex Sans Arabic والأميري (SIL OFL). مواقيت الصلاة: Adhan (MIT) وapi.aladhan.com. شعارات العلامات: Simple Icons (CC0)، وهي ملك أصحابها.</string>
+    <string name="backup_title" formatted="false">نسخة احتياطية</string>
+    <string name="backup_hint" formatted="false">احفظ تطبيقاتك ومواقعك ومجموعاتك وقواعدك وإعداداتك في ملف، أو استعدها منه. الاستعادة كالحفظ: كل ما هو أخفّ يحتاج إلى تأكيد.</string>
+    <string name="backup_export" formatted="false">تصدير</string>
+    <string name="backup_import" formatted="false">استيراد</string>
+    <string name="backup_exported" formatted="false">حُفظت النسخة الاحتياطية.</string>
+    <string name="backup_writeFailed" formatted="false">تعذّر حفظ الملف.</string>
+    <string name="backup_invalid" formatted="false">هذا الملف ليس نسخة احتياطية من «الوقت سيف».</string>
+    <string name="backup_imported" formatted="false">استُعيدت النسخة الاحتياطية.</string>
+    <string name="backup_same" formatted="false">النسخة الاحتياطية مطابقة لإعداداتك الحالية.</string>
+    <string name="backup_loosenTitle" formatted="false">استعادة نسخة أخفّ؟</string>
+</resources>

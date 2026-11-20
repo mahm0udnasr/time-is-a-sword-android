@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- GENERATED from the extension's shared/i18n.js by tools/i18n/convert.mjs. Do not edit by hand. -->
+<resources>
+    <string name="x_app_name" formatted="false">الوقت سيف</string>
+    <string name="x_menu_open" formatted="false">فتح القائمة</string>
+    <string name="x_info_label" formatted="false">معلومات عن هذه الصفحة</string>
+    <string name="x_menu_close" formatted="false">إغلاق القائمة</string>
+    <string name="x_lang_toggle" formatted="false">EN</string>
+    <string name="x_lang_toggleLabel" formatted="false">Switch to English</string>
+    <string name="x_theme_label" formatted="false">المظهر</string>
+    <string name="x_theme_system" formatted="false">حسب النظام</string>
+    <string name="x_theme_light" formatted="false">فاتح</string>
+    <string name="x_theme_dark" formatted="false">داكن</string>
+    <string name="x_nav_label" formatted="false">أقسام الإعدادات</string>
+    <string name="x_nav_overview" formatted="false">نظرة عامة</string>
+    <string name="x_nav_sites" formatted="false">المواقع</string>
+    <string name="x_nav_groups" formatted="false">المجموعات</string>
+    <string name="x_page_title" formatted="false">إعدادات الوقت سيف</string>
+    <string name="x_overview_sub" formatted="false">يومك في لمحة.</string>
+    <string name="x_stat_time" formatted="false">وقت اليوم</string>
+    <string name="x_stat_blocked" formatted="false">محجوب الآن</string>
+    <string name="x_stat_pauses" formatted="false">الإيقافات المتبقية</string>
+    <string name="x_today" formatted="false">اليوم</string>
+    <string name="x_newDayAt" formatted="false">اليوم الجديد يبدأ {time}</string>
+    <string name="x_today_empty" formatted="false">لم تقضِ وقتًا على مواقعك اليوم.</string>
+    <string name="x_chart_title" formatted="false">آخر 7 أيام</string>
+    <string name="x_chart_filter" formatted="false">عرض الاستخدام لـ</string>
+    <string name="x_chart_allSites" formatted="false">كل المواقع</string>
+    <string name="x_chart_aria" formatted="false">الوقت النشط يوميًا لـ{what}، آخر 7 أيام</string>
+    <string name="x_chart_today" formatted="false">اليوم</string>
+    <string name="x_chart_on" formatted="false">{time} على {site}</string>
+    <string name="x_chart_inTotal" formatted="false">{time} إجمالًا</string>
+    <string name="x_badge_group" formatted="false">مجموعة</string>
+    <string name="x_badge_paused" formatted="false">إيقاف مؤقت</string>
+    <string name="x_badge_limited" formatted="false">محدود</string>
+    <string name="x_badge_allowedNow" formatted="false">مسموح الآن</string>
+    <string name="x_badge_allowed" formatted="false">مسموح</string>
+    <string name="x_badge_off" formatted="false">غير مفعّل</string>
+    <string name="x_reason_blocked" formatted="false">محجوب</string>
+    <string name="x_reason_limit" formatted="false">انتهى الوقت</string>
+    <string name="x_reason_schedule" formatted="false">خارج الأوقات</string>
+    <string name="x_usage_today" formatted="false">{time} اليوم</string>
+    <string name="x_sites_sub" formatted="false">يشمل كل موقع نطاقاته الفرعية، والأيام التي بلا قاعدة غير مقيّدة. التغييرات الأشد تُطبَّق فورًا، والأخف تحتاج إلى تأكيد.</string>
+    <string name="x_sites_add" formatted="false">أضف موقعًا، مثل youtube.com</string>
+    <string name="x_sites_addLabel" formatted="false">الموقع المراد إضافته</string>
+    <string name="x_add" formatted="false">إضافة</string>
+    <string name="x_search" formatted="false">بحث</string>
+    <string name="x_sites_searchLabel" formatted="false">البحث في المواقع</string>
+    <string name="x_sites_empty" formatted="false">لا توجد مواقع بعد. أضف موقعًا من الأعلى.</string>
+    <string name="x_sites_noMatch" formatted="false">لا يوجد موقع يطابق «{q}».</string>
+    <string name="x_site_apply" formatted="false">تطبيق القواعد على {site}</string>
+    <string name="x_site_edit" formatted="false">تعديل قواعد {site}</string>
+    <string name="x_site_remove" formatted="false">حذف {site}</string>
+    <string name="x_site_switchOffTitle" formatted="false">إيقاف {site}؟</string>
+    <string name="x_site_switchedOn" formatted="false">تم تفعيل {site}</string>
+    <string name="x_site_switchedOff" formatted="false">تم إيقاف {site}</string>
+    <string name="x_site_removeTitle" formatted="false">حذف {site}؟</string>
+    <string name="x_site_removed" formatted="false">تم حذف {site}</string>
+    <string name="x_site_added" formatted="false">أُضيف {site} وحُجب. استخدم القلم لتحديد وقت أو ساعات بدلًا من الحجب الكامل.</string>
+    <string name="x_site_loosenTitle" formatted="false">تخفيف قواعد {site}؟</string>
+    <string name="x_rules_groupOnly" formatted="false">قاعدة المجموعة فقط</string>
+    <string name="x_rules_trackedOnly" formatted="false">بلا قاعدة: يُحسب الوقت فقط</string>
+    <string name="x_err_badDomain" formatted="false">هذا لا يبدو عنوان موقع.</string>
+    <string name="x_err_dupDomain" formatted="false">{site} موجود في القائمة بالفعل.</string>
+    <string name="x_groups_sub" formatted="false">المواقع في المجموعة تتشارك وقتًا وجدولًا واحدًا، فلا تكسب وقتًا إضافيًا بالتنقل بينها. ويجب أن يحقق كل موقع قاعدته وقاعدة المجموعة معًا.</string>
+    <string name="x_groups_add" formatted="false">مجموعة جديدة، مثل المراسلة</string>
+    <string name="x_groups_addLabel" formatted="false">اسم المجموعة الجديدة</string>
+    <string name="x_groups_empty" formatted="false">لا توجد مجموعات بعد. مجموعة مثل «المراسلة» لواتساب وتيليجرام تمنعك من التنقل بينهما للتحايل على الحد.</string>
+    <string name="x_group_apply" formatted="false">تطبيق مجموعة {name}</string>
+    <string name="x_group_edit" formatted="false">تعديل مجموعة {name}</string>
+    <string name="x_group_remove" formatted="false">حذف مجموعة {name}</string>
+    <string name="x_group_switchOffTitle" formatted="false">إيقاف مجموعة «{name}»؟</string>
+    <string name="x_group_switchedOn" formatted="false">تم تفعيل «{name}»</string>
+    <string name="x_group_switchedOff" formatted="false">تم إيقاف «{name}»</string>
+    <string name="x_group_removeTitle" formatted="false">حذف مجموعة «{name}»؟</string>
+    <string name="x_group_removed" formatted="false">تم حذف «{name}»</string>
+    <string name="x_group_noSites" formatted="false">لا مواقع بعد: عدّلها لإضافة مواقع</string>
+    <string name="x_group_added" formatted="false">أُضيفت مجموعة «{name}» بحد 30 دقيقة يوميًا. استخدم القلم لإضافة مواقع.</string>
+    <string name="x_group_name" formatted="false">الاسم</string>
+    <string name="x_group_nameLabel" formatted="false">اسم المجموعة</string>
+    <string name="x_group_sites" formatted="false">المواقع في هذه المجموعة</string>
+    <string name="x_group_movesHere" formatted="false">(ستُنقل إلى هنا)</string>
+    <string name="x_group_addSitesFirst" formatted="false">أضف مواقع أولًا.</string>
+    <string name="x_group_sharedRules" formatted="false">القواعد المشتركة</string>
+    <string name="x_group_loosenTitle" formatted="false">تخفيف مجموعة «{name}»؟</string>
+    <string name="x_group_label" formatted="false">مجموعة «{name}»</string>
+    <string name="x_err_groupNameEmpty" formatted="false">اكتب اسمًا للمجموعة.</string>
+    <string name="x_err_groupNameMissing" formatted="false">أعطِ المجموعة اسمًا.</string>
+    <string name="x_err_groupNameDup" formatted="false">توجد مجموعة باسم «{name}» بالفعل.</string>
+    <string name="x_save" formatted="false">حفظ</string>
+    <string name="x_cancel" formatted="false">إلغاء</string>
+    <string name="x_dismiss" formatted="false">إغلاق</string>
+    <string name="x_saved" formatted="false">تم الحفظ</string>
+    <string name="x_cancelled" formatted="false">أُلغي. لم يتغير شيء.</string>
+    <string name="x_editor_rulesFor" formatted="false">قواعد {site}</string>
+    <string name="x_editor_noOwnRule" formatted="false">بلا قاعدة خاصة: تُطبَّق قاعدة المجموعة فقط.</string>
+    <string name="x_editor_noRule" formatted="false">بلا قاعدة: الموقع غير مقيّد، ويُحسب وقته فقط.</string>
+    <string name="x_mode_block" formatted="false">محجوب دائمًا</string>
+    <string name="x_mode_limit" formatted="false">حد زمني يومي</string>
+    <string name="x_mode_schedule" formatted="false">في ساعات محددة فقط</string>
+    <string name="x_mode_limitSchedule" formatted="false">حد زمني ضمن ساعات محددة</string>
+    <string name="x_re_addRule" formatted="false">+ أضف قاعدة لأيام أخرى</string>
+    <string name="x_re_daysFor" formatted="false">أيام {label}</string>
+    <string name="x_re_ruleType" formatted="false">نوع القاعدة</string>
+    <string name="x_re_minutesLabel" formatted="false">الدقائق في اليوم</string>
+    <string name="x_re_minPerDay" formatted="false">دقيقة يوميًا</string>
+    <string name="x_re_from" formatted="false">من</string>
+    <string name="x_re_to" formatted="false">إلى</string>
+    <string name="x_re_until" formatted="false">حتى</string>
+    <string name="x_re_removeHours" formatted="false">حذف هذه الساعات</string>
+    <string name="x_re_addHours" formatted="false">+ أضف ساعات</string>
+    <string name="x_re_allowedBetween" formatted="false">مسموح بين</string>
+    <string name="x_re_removeRule" formatted="false">حذف هذه القاعدة</string>
+    <string name="x_err_atLeastOneRule" formatted="false">أضف قاعدة واحدة على الأقل.</string>
+    <string name="x_err_rulePrefix" formatted="false">القاعدة {n}: </string>
+    <string name="x_err_pickDay" formatted="false">اختر يومًا واحدًا على الأقل.</string>
+    <string name="x_err_dayTwice" formatted="false">يوم {day} موجود في أكثر من قاعدة، ولكل يوم قاعدة واحدة فقط.</string>
+    <string name="x_err_minutes" formatted="false">الدقائق يجب أن تكون عددًا صحيحًا من 0 إلى 1440.</string>
+    <string name="x_err_oneRange" formatted="false">أضف فترة مسموحة واحدة على الأقل.</string>
+    <string name="x_err_bothTimes" formatted="false">املأ وقت البداية والنهاية لكل فترة.</string>
+    <string name="x_err_sameTime" formatted="false">لا يمكن أن تبدأ الفترة وتنتهي في الوقت نفسه ({t}).</string>
+    <string name="x_sum_noRule" formatted="false">بلا قاعدة</string>
+    <string name="x_sum_blocked" formatted="false">{days}: محجوب</string>
+    <string name="x_sum_limit" formatted="false">{days}: {n} دقيقة يوميًا</string>
+    <string name="x_sum_schedule" formatted="false">{days}: فقط {w}</string>
+    <string name="x_sum_limitSchedule" formatted="false">{days}: {n} دقيقة ضمن {w}</string>
+    <string name="x_days_every" formatted="false">كل يوم</string>
+    <string name="x_days_none" formatted="false">لا أيام</string>
+    <string name="x_lo_switchedOff" formatted="false">أُوقف</string>
+    <string name="x_lo_leavesGroup" formatted="false">يخرج من مجموعة «{name}»</string>
+    <string name="x_lo_removed" formatted="false">حُذف</string>
+    <string name="x_lo_ruleRemoved" formatted="false">حُذفت القاعدة</string>
+    <string name="x_lo_unblocked" formatted="false">لم يعد محجوبًا دائمًا</string>
+    <string name="x_lo_limitRemoved" formatted="false">أُزيل الحد اليومي</string>
+    <string name="x_lo_limitRaised" formatted="false">رُفع الحد من {a} إلى {b} دقيقة</string>
+    <string name="x_lo_hoursRemoved" formatted="false">أُزيلت الساعات المسموحة</string>
+    <string name="x_lo_hoursWidened" formatted="false">وُسِّعت الساعات المسموحة</string>
+    <string name="x_fr_defaultTitle" formatted="false">هذا التغيير يخفّف قواعدك</string>
+    <string name="x_fr_note" formatted="false">يُطبَّق هذا فور التأكيد.</string>
+    <string name="x_fr_apply" formatted="false">طبّق الآن</string>
+    <string name="x_fr_confirm" formatted="false">تأكيد</string>
+    <string name="x_fr_typeVerse" formatted="false">اكتب البيت أعلاه للمتابعة. لا يهم الانتقال إلى سطر جديد، والنسخ واللصق معطّلان.</string>
+    <string name="x_fr_typeQuote" formatted="false">اكتب التذكير أعلاه للمتابعة (النسخ واللصق معطّلان):</string>
+    <string name="x_fr_typeLabel" formatted="false">اكتب التذكير كما هو</string>
+    <string name="x_fr_wait" formatted="false">انتظر {n} ث</string>
+    <string name="x_fr_matchesWait" formatted="false">✓ مطابق. انتظر انتهاء العدّ.</string>
+    <string name="x_fr_matches" formatted="false">✓ مطابق.</string>
+    <string name="x_fr_wordDiffers" formatted="false">الكلمة {n} مختلفة: المتوقع «{w}»</string>
+    <string name="x_fr_progress" formatted="false">{a} من {b} كلمات</string>
+    <string name="x_pause_unreachable" formatted="false">تعذّر الاتصال بالإضافة. حاول مرة أخرى.</string>
+    <string name="x_pause_notActive" formatted="false">{site} ليس موقعًا مفعّلًا في قائمتك.</string>
+    <string name="x_pause_noneLeft" formatted="false">استخدمت كل الإيقافات المؤقتة لهذا اليوم.</string>
+    <string name="x_pause_title" formatted="false">إيقاف الحجب مؤقتًا عن {site}؟</string>
+    <string name="x_pause_r1" formatted="false">سيُسمح بـ{site} لمدة {n} دقائق مهما كانت قواعده.</string>
+    <string name="x_pause_r2" formatted="false">الإيقافات المتبقية اليوم بعد هذا: {n}.</string>
+    <string name="x_pause_note" formatted="false">يظل وقته محسوبًا ضمن استخدام اليوم.</string>
+    <string name="x_pause_confirm" formatted="false">أوقف {n} د</string>
+    <string name="x_pause_cancelled" formatted="false">أُلغي. لم يُستخدم أي إيقاف.</string>
+    <string name="x_pause_done" formatted="false">أُوقف حجب {site} حتى {time}. يمكنك العودة إلى تبويبه.</string>
+    <string name="x_pause_failed" formatted="false">تعذّر بدء الإيقاف المؤقت.</string>
+    <string name="x_pp_openSettings" formatted="false">فتح الإعدادات</string>
+    <string name="x_pp_inGroup" formatted="false">ضمن «{name}»</string>
+    <string name="x_pp_opens" formatted="false">يُفتح {when}</string>
+    <string name="x_pp_blockedRule" formatted="false">محجوب ما دامت هذه القاعدة</string>
+    <string name="x_pp_byGroup" formatted="false">محجوب بقاعدة مجموعة «{name}»</string>
+    <string name="x_pp_pauseLeft" formatted="false">متبقية من الإيقاف</string>
+    <string name="x_pp_leftToday" formatted="false">متبقية اليوم</string>
+    <string name="x_pp_left" formatted="false">متبقية</string>
+    <string name="x_pp_today" formatted="false">اليوم</string>
+    <string name="x_pp_allowedUntil" formatted="false">مسموح حتى {time}</string>
+    <string name="x_pp_pausedUntil" formatted="false">موقوف حتى {time}</string>
+    <string name="x_pp_noPauses" formatted="false">لا إيقافات متبقية اليوم</string>
+    <string name="x_pp_pauseBtn" formatted="false">إيقاف مؤقت {n} د · متبقٍ {left}</string>
+    <string name="x_pp_total" formatted="false">{time} إجمالًا</string>
+    <string name="x_when_today" formatted="false">اليوم {time}</string>
+    <string name="x_when_tomorrow" formatted="false">غدًا {time}</string>
+    <string name="x_when_day" formatted="false">{day} {time}</string>
+    <string name="x_dur_h" formatted="false">س</string>
+    <string name="x_dur_m" formatted="false">د</string>
+    <string name="x_dur_s" formatted="false">ث</string>
+    <string name="x_blocked_title" formatted="false">وقتك</string>
+    <string name="x_nav_prayer" formatted="false">الصلاة أولًا</string>
+    <string name="x_nav_about" formatted="false">عن الإضافة</string>
+    <string name="x_about_sub" formatted="false">من صنع الإضافة، وكيف تساهم فيها أو تبلّغ عن مشكلة.</string>
+    <string name="x_about_madeBy" formatted="false">صنعها</string>
+    <string name="x_about_website" formatted="false">الموقع الشخصي</string>
+    <string name="x_about_linksLabel" formatted="false">روابط المطوّر</string>
+    <string name="x_about_version" formatted="false">الإصدار {v}</string>
+    <string name="x_about_license" formatted="false">مفتوحة المصدر (MIT)</string>
+    <string name="x_about_desc" formatted="false">تحجب المواقع المشتّتة أو تحدّ وقتها، وتغلق كل المواقع وقت الصلاة، وتذكّرك بقيمة الوقت بحديث أو أثر أو بيت شعر. كل بياناتك تبقى على جهازك.</string>
+    <string name="x_about_source" formatted="false">الكود المصدري</string>
+    <string name="x_about_issue" formatted="false">أبلغ عن مشكلة</string>
+    <string name="x_about_footer" formatted="false">صُنعت لمن يريد أن يحفظ وقته. لا تنسونا من صالح دعائكم.</string>
+    <string name="x_prayer_sub" formatted="false">قبل كل صلاة بدقائق تُغلق كل المواقع ويظهر حديث عن الصلاة، ثم تُفتح من جديد بعدها.</string>
+    <string name="x_prayer_fajr" formatted="false">الفجر</string>
+    <string name="x_prayer_dhuhr" formatted="false">الظهر</string>
+    <string name="x_prayer_asr" formatted="false">العصر</string>
+    <string name="x_prayer_maghrib" formatted="false">المغرب</string>
+    <string name="x_prayer_isha" formatted="false">العشاء</string>
+    <string name="x_prayer_enable" formatted="false">تفعيل الصلاة أولًا</string>
+    <string name="x_prayer_enableHint" formatted="false">عند التفعيل تُغلق كل المواقع في أوقات الصلاة، لا المواقع التي في قائمتك فقط.</string>
+    <string name="x_prayer_location" formatted="false">الموقع وطريقة الحساب</string>
+    <string name="x_prayer_address" formatted="false">المدينة أو العنوان</string>
+    <string name="x_prayer_addressPh" formatted="false">مثل: القاهرة، مصر</string>
+    <string name="x_prayer_method" formatted="false">طريقة الحساب</string>
+    <string name="x_prayer_school" formatted="false">وقت العصر</string>
+    <string name="x_prayer_school0" formatted="false">الجمهور (شافعي، مالكي، حنبلي)</string>
+    <string name="x_prayer_school1" formatted="false">حنفي</string>
+    <string name="x_prayer_privacy" formatted="false">لجلب المواقيت يُرسَل إلى api.aladhan.com فقط اسم المدينة الذي تكتبه، أو موقعك التقريبي (لأقرب كيلومتر تقريبًا) إن استخدمت موقعك الحالي.</string>
+    <string name="x_prayer_locate" formatted="false">استخدم موقعي الحالي</string>
+    <string name="x_prayer_locating" formatted="false">جارٍ تحديد موقعك…</string>
+    <string name="x_prayer_here" formatted="false">موقعك الحالي</string>
+    <string name="x_prayer_typeCity" formatted="false">اكتب مدينة بدلًا من ذلك</string>
+    <string name="x_prayer_or" formatted="false">أو اكتب المدينة</string>
+    <string name="x_prayer_located" formatted="false">تم تحديد موقعك.</string>
+    <string name="x_prayer_locDenied" formatted="false">لم يُسمح بالوصول إلى الموقع. اكتب مدينتك بدلًا من ذلك.</string>
+    <string name="x_prayer_locUnavailable" formatted="false">تعذّر تحديد موقعك (قد تكون خدمة الموقع معطّلة في المتصفح). اكتب مدينتك بدلًا من ذلك.</string>
+    <string name="x_prayer_locTimeout" formatted="false">استغرق تحديد الموقع وقتًا طويلًا. حاول مرة أخرى أو اكتب مدينتك.</string>
+    <string name="x_prayer_timing" formatted="false">مدة الإغلاق</string>
+    <string name="x_prayer_before" formatted="false">قبل الصلاة (دقائق)</string>
+    <string name="x_prayer_after" formatted="false">بعد الصلاة (دقائق)</string>
+    <string name="x_prayer_today" formatted="false">مواقيت اليوم</string>
+    <string name="x_prayer_refresh" formatted="false">تحديث المواقيت</string>
+    <string name="x_prayer_adjustLabel" formatted="false">تعديل وقت {name} بالدقائق</string>
+    <string name="x_prayer_toggleLabel" formatted="false">الإغلاق لصلاة {name}</string>
+    <string name="x_prayer_window" formatted="false">إغلاق {from}–{to}</string>
+    <string name="x_prayer_noTimes" formatted="false">لا توجد مواقيت بعد. اكتب مدينتك واحفظ.</string>
+    <string name="x_prayer_approx" formatted="false">مواقيت تقريبية (تعذّر الاتصال)</string>
+    <string name="x_prayer_save" formatted="false">حفظ</string>
+    <string name="x_prayer_saved" formatted="false">تم حفظ إعدادات الصلاة أولًا</string>
+    <string name="x_prayer_needAddress" formatted="false">حدّد موقعك أو اكتب مدينتك أولًا لتفعيل الصلاة أولًا.</string>
+    <string name="x_prayer_badNumbers" formatted="false">الدقائق قبل الصلاة من 0 إلى 60، وبعدها من 0 إلى 120، والتعديل من -60 إلى 60.</string>
+    <string name="x_prayer_loosenTitle" formatted="false">تخفيف الصلاة أولًا؟</string>
+    <string name="x_prayer_fetching" formatted="false">جارٍ جلب المواقيت…</string>
+    <string name="x_prayer_fetched" formatted="false">تم تحديث المواقيت.</string>
+    <string name="x_prayer_fetchError" formatted="false">تعذّر جلب المواقيت: {msg}</string>
+    <string name="x_ps_off" formatted="false">الصلاة أولًا متوقفة.</string>
+    <string name="x_ps_noAddress" formatted="false">حدّد موقعك أو اكتب مدينتك لجلب مواقيت الصلاة.</string>
+    <string name="x_ps_locked" formatted="false">المواقع مغلقة الآن لصلاة {name} حتى {time}</string>
+    <string name="x_ps_next" formatted="false">الصلاة القادمة: {name} {time}</string>
+    <string name="x_ps_nextIn" formatted="false">تُغلق المواقع بعد {dur}</string>
+    <string name="x_ps_noNext" formatted="false">لا توجد مواقيت قادمة بعد.</string>
+    <string name="x_pl_off" formatted="false">أُوقفت الصلاة أولًا</string>
+    <string name="x_pl_location" formatted="false">تغيّرت المدينة أو طريقة الحساب</string>
+    <string name="x_pl_before" formatted="false">قلّت الدقائق قبل الصلاة من {a} إلى {b}</string>
+    <string name="x_pl_after" formatted="false">قلّت الدقائق بعد الصلاة من {a} إلى {b}</string>
+    <string name="x_pl_prayerOff" formatted="false">{name}: أُوقف الإغلاق</string>
+    <string name="x_pl_adjust" formatted="false">{name}: عُدّل الوقت من {a} إلى {b} دقيقة</string>
+    <string name="x_blocked_prayerNow" formatted="false">حان وقت صلاة {name}</string>
+    <string name="x_blocked_prayerTitle" formatted="false">الصلاة أولًا</string>
+    <string name="x_method_5" formatted="false">الهيئة المصرية العامة للمساحة</string>
+    <string name="x_method_4" formatted="false">أم القرى، مكة المكرمة</string>
+    <string name="x_method_3" formatted="false">رابطة العالم الإسلامي</string>
+    <string name="x_method_2" formatted="false">الجمعية الإسلامية لأمريكا الشمالية</string>
+    <string name="x_method_1" formatted="false">جامعة العلوم الإسلامية، كراتشي</string>
+    <string name="x_method_8" formatted="false">منطقة الخليج</string>
+    <string name="x_method_9" formatted="false">الكويت</string>
+    <string name="x_method_10" formatted="false">قطر</string>
+    <string name="x_method_16" formatted="false">دبي</string>
+    <string name="x_method_23" formatted="false">وزارة الأوقاف، الأردن</string>
+    <string name="x_method_13" formatted="false">رئاسة الشؤون الدينية، تركيا</string>
+    <string name="x_method_12" formatted="false">اتحاد المنظمات الإسلامية، فرنسا</string>
+    <string name="x_method_18" formatted="false">تونس</string>
+    <string name="x_method_19" formatted="false">الجزائر</string>
+    <string name="x_method_21" formatted="false">وزارة الأوقاف، المغرب</string>
+    <string name="x_method_11" formatted="false">مجلس الشؤون الإسلامية، سنغافورة</string>
+    <string name="x_method_15" formatted="false">لجنة رؤية الهلال</string>
+    <string name="x_list_sep" formatted="false">، </string>
+</resources>
