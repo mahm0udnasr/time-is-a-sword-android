@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+- Short videos: detection of the player inside YouTube (Shorts), Instagram (Reels) and Facebook (Reels), and of their web pages in Chrome, verified on the phone. The app checks again once a short-video app's screen settles, so switching to the Shorts/Reels tab is no longer missed.
+
 ## 1.2.0
 
 - **Short videos**: a new card at the top of Apps & sites closes the short-video part of apps while the rest stays open — YouTube Shorts, Instagram Reels, Facebook Reels, Snapchat Spotlight and their web pages — and short-video apps entirely (TikTok, Likee, Kwai…).
