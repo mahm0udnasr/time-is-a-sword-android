@@ -92,6 +92,9 @@ class MainActivity : AppCompatActivity() {
         val c = container
         val committer = Committer(c) { this }
         if (savedInstanceState == null) route.value = intent.getStringExtra(com.mahm0udnasr.sword.widget.Widgets.EXTRA_ROUTE)
+        // A language switch recreates this screen once the new language is in place: redraw the
+        // widgets now, in that language (the service's refresh can run a moment too early).
+        if (savedInstanceState != null) com.mahm0udnasr.sword.widget.Widgets.request(this, force = true)
 
         // The saved language is the source of truth; switching recreates the activity.
         lifecycleScope.launch {

@@ -191,7 +191,7 @@
     <string name="w_noLocation" formatted="false">Set your location in Salah First to see the times.</string>
     <string name="w_salahOn" formatted="false">Salah First is on</string>
     <string name="w_salahOff" formatted="false">Salah First is off</string>
-    <string name="w_hijriSuffix" formatted="false"> AH</string>
+    <string name="w_hijriSuffix" formatted="false">"\u00A0AH"</string>
     <string name="w_cardTitle" formatted="false">Widgets</string>
     <string name="w_cardHint" formatted="false">Add a widget to your home screen: today’s time, or the prayer times with a countdown.</string>
 </resources>

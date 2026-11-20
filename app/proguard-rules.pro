@@ -21,3 +21,11 @@
 # Readable crash traces from users' phones.
 -keepattributes SourceFile, LineNumberTable
 -renamesourcefileattribute SourceFile
+
+# Glance stores "receiver → widget class" by class NAME and reads it back after an update.
+# R8 renames classes differently in every build, so the stored names would point at the wrong
+# widget (seen: the Prayer widget drawn with the Today design). Keep the real names.
+-keep class com.mahm0udnasr.sword.widget.TodayWidget { *; }
+-keep class com.mahm0udnasr.sword.widget.PrayerWidget { *; }
+-keep class com.mahm0udnasr.sword.widget.TodayWidgetReceiver { *; }
+-keep class com.mahm0udnasr.sword.widget.PrayerWidgetReceiver { *; }

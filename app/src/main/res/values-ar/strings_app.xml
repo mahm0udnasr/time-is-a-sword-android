@@ -190,7 +190,7 @@
     <string name="w_noLocation" formatted="false">حدّد موقعك في «الصلاة أولًا» لتظهر المواقيت.</string>
     <string name="w_salahOn" formatted="false">«الصلاة أولًا» مفعّلة</string>
     <string name="w_salahOff" formatted="false">«الصلاة أولًا» متوقفة</string>
-    <string name="w_hijriSuffix" formatted="false"> هـ</string>
+    <string name="w_hijriSuffix" formatted="false">"\u00A0هـ"</string>
     <string name="w_cardTitle" formatted="false">الأدوات</string>
     <string name="w_cardHint" formatted="false">أضف أداة إلى الشاشة الرئيسية: وقت اليوم، أو مواقيت الصلاة مع العدّ التنازلي.</string>
 </resources>

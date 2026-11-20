@@ -70,16 +70,24 @@ private data class PrayerData(
  */
 class PrayerWidget : GlanceAppWidget() {
     override val sizeMode = SizeMode.Exact
+    override val stateDefinition = androidx.glance.state.PreferencesGlanceStateDefinition
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        val data = load(context)
-        provideContent { Content(context, data) }
+        context.container.config.awaitLoaded()
+        context.container.state.awaitLoaded()
+        // Built inside the composition: Glance keeps the session alive and an update only
+        // recomposes it, so data loaded once outside would stay stale (wrong language,
+        // frozen countdown) until the session ends.
+        provideContent {
+            // Reading the state key makes every Widgets.request() recompose this (see Widgets.update).
+            androidx.glance.currentState(Widgets.TICK)
+            val ctx = Widgets.localized(context)
+            Content(ctx, load(ctx))
+        }
     }
 
-    private suspend fun load(ctx: Context): PrayerData {
+    private fun load(ctx: Context): PrayerData {
         val c = ctx.container
-        c.config.awaitLoaded()
-        c.state.awaitLoaded()
         val now = System.currentTimeMillis()
         val raw = c.config.value.prayer
         val p = normalizePrayer(raw)
@@ -133,45 +141,64 @@ class PrayerWidget : GlanceAppWidget() {
 
     @Composable
     private fun Content(ctx: Context, d: PrayerData) {
+        val dir = Dir.of(ctx)
         val wide = LocalSize.current.width.value >= 250f
         val tall = LocalSize.current.height.value >= 150f
         Column(
             GlanceModifier.fillMaxSize().background(if (d.locked) WColors.accentSoft else WColors.surface).cornerRadius(20.dp).padding(14.dp)
                 .clickable(actionStartActivity(Widgets.openIntent(ctx, "salah"))),
+            horizontalAlignment = dir.start,
         ) {
-            Row(GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Image(ImageProvider(R.drawable.ic_stat_sword), null, GlanceModifier.size(16.dp), colorFilter = ColorFilter.tint(WColors.gold))
-                Spacer(GlanceModifier.width(6.dp))
-                Text(d.hijri.ifEmpty { d.gregorian }, style = TextStyle(color = WColors.gold, fontSize = 12.sp), maxLines = 1, modifier = GlanceModifier.defaultWeight())
-                if (wide && d.hijri.isNotEmpty()) Text(d.gregorian, style = TextStyle(color = WColors.muted, fontSize = 11.sp), maxLines = 1)
-            }
+            // Header: [icon] Hijri date ........ Gregorian date   (mirrored in Arabic)
+            DirRow(
+                dir, GlanceModifier.fillMaxWidth(),
+                parts = buildList {
+                    add { Image(ImageProvider(R.drawable.ic_stat_sword), null, GlanceModifier.size(16.dp), colorFilter = ColorFilter.tint(WColors.gold)) }
+                    add { Spacer(GlanceModifier.width(6.dp)) }
+                    add { Text(dir.t(d.hijri.ifEmpty { d.gregorian }), style = TextStyle(color = WColors.gold, fontSize = 12.sp, textAlign = dir.textAlign), maxLines = 1, modifier = GlanceModifier.defaultWeight()) }
+                    if (wide && d.hijri.isNotEmpty()) add { Text(dir.t(d.gregorian), style = TextStyle(color = WColors.muted, fontSize = 11.sp), maxLines = 1) }
+                },
+            )
             Spacer(GlanceModifier.height(6.dp))
-            Text(d.headline + if (d.approx) " ≈" else "", style = TextStyle(color = WColors.text, fontSize = 22.sp, fontWeight = FontWeight.Bold), maxLines = 1)
-            Text(d.sub, style = TextStyle(color = if (d.locked) WColors.accent else WColors.muted, fontSize = 13.sp, fontWeight = FontWeight.Medium), maxLines = 2)
+            Text(
+                dir.t(d.headline + if (d.approx) " ≈" else ""),
+                style = TextStyle(color = WColors.text, fontSize = 22.sp, fontWeight = FontWeight.Bold, textAlign = dir.textAlign),
+                maxLines = 1, modifier = GlanceModifier.fillMaxWidth(),
+            )
+            Text(
+                dir.t(d.sub),
+                style = TextStyle(color = if (d.locked) WColors.accent else WColors.muted, fontSize = 13.sp, fontWeight = FontWeight.Medium, textAlign = dir.textAlign),
+                maxLines = 2, modifier = GlanceModifier.fillMaxWidth(),
+            )
             Spacer(GlanceModifier.defaultWeight())
             if (d.slots.isNotEmpty()) {
-                Row(GlanceModifier.fillMaxWidth()) {
-                    d.slots.forEach { s ->
-                        Column(
-                            GlanceModifier.defaultWeight().padding(vertical = 6.dp, horizontal = 2.dp)
-                                .background(if (s.next) WColors.accent else WColors.bg).cornerRadius(10.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                        ) {
-                            val color = when {
-                                s.next -> WColors.surface
-                                s.past -> WColors.muted
-                                else -> WColors.text
+                // Fajr … Isha in reading order: from the right in Arabic.
+                DirRow(
+                    dir, GlanceModifier.fillMaxWidth(), vertical = Alignment.Top,
+                    parts = d.slots.mapIndexed { i, s ->
+                        val slot: @Composable androidx.glance.layout.RowScope.() -> Unit = {
+                            Column(
+                                GlanceModifier.defaultWeight().background(if (s.next) WColors.accent else WColors.bg).cornerRadius(10.dp)
+                                    .padding(vertical = 6.dp, horizontal = 2.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                            ) {
+                                val color = when {
+                                    s.next -> WColors.surface
+                                    s.past -> WColors.muted
+                                    else -> WColors.text
+                                }
+                                Text(dir.t(s.name), style = TextStyle(color = color, fontSize = 11.sp, textAlign = TextAlign.Center), maxLines = 1, modifier = GlanceModifier.fillMaxWidth())
+                                Text(dir.t(s.time), style = TextStyle(color = color, fontSize = 12.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center), maxLines = 1, modifier = GlanceModifier.fillMaxWidth())
                             }
-                            Text(s.name, style = TextStyle(color = color, fontSize = 11.sp, textAlign = TextAlign.Center), maxLines = 1)
-                            Text(s.time, style = TextStyle(color = color, fontSize = 12.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center), maxLines = 1)
                         }
-                        Spacer(GlanceModifier.width(3.dp))
-                    }
-                }
+                        val gap: @Composable androidx.glance.layout.RowScope.() -> Unit = { Spacer(GlanceModifier.width(4.dp)) }
+                        if (i == 0) listOf(slot) else listOf(gap, slot)
+                    }.flatten(),
+                )
             }
             if (tall) {
                 Spacer(GlanceModifier.height(6.dp))
-                Text(d.salahFirst, style = TextStyle(color = WColors.muted, fontSize = 11.sp), maxLines = 1)
+                Text(dir.t(d.salahFirst), style = TextStyle(color = WColors.muted, fontSize = 11.sp, textAlign = dir.textAlign), maxLines = 1, modifier = GlanceModifier.fillMaxWidth())
             }
         }
     }

@@ -58,16 +58,24 @@ private data class TodayData(
  */
 class TodayWidget : GlanceAppWidget() {
     override val sizeMode = SizeMode.Exact
+    override val stateDefinition = androidx.glance.state.PreferencesGlanceStateDefinition
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        val data = load(context)
-        provideContent { Content(context, data) }
+        context.container.config.awaitLoaded()
+        context.container.state.awaitLoaded()
+        // Built inside the composition: Glance keeps the session alive and an update only
+        // recomposes it, so data loaded once outside would stay stale (wrong language,
+        // frozen countdown) until the session ends.
+        provideContent {
+            // Reading the state key makes every Widgets.request() recompose this (see Widgets.update).
+            androidx.glance.currentState(Widgets.TICK)
+            val ctx = Widgets.localized(context)
+            Content(ctx, load(ctx))
+        }
     }
 
-    private suspend fun load(ctx: Context): TodayData {
+    private fun load(ctx: Context): TodayData {
         val c = ctx.container
-        c.config.awaitLoaded()
-        c.state.awaitLoaded()
         val t = today(c.config.value, c.state.value)
         val rows = t.targets.filter { it.hasRuleToday }
             // Most urgent first: blocked, then the least time left, then the rest.
@@ -95,54 +103,78 @@ class TodayWidget : GlanceAppWidget() {
 
     @Composable
     private fun Content(ctx: Context, d: TodayData) {
+        val dir = Dir.of(ctx)
         val size = LocalSize.current
         // Rows that fit: header ~56dp, footer ~28dp, each row ~38dp.
         val rows = ((size.height.value - 84f) / 38f).toInt().coerceIn(1, 6)
         Column(
             GlanceModifier.fillMaxSize().background(WColors.surface).cornerRadius(20.dp).padding(14.dp)
                 .clickable(actionStartActivity(Widgets.openIntent(ctx, "overview"))),
+            horizontalAlignment = dir.start,
         ) {
-            Row(GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Image(ImageProvider(R.drawable.ic_stat_sword), null, GlanceModifier.size(18.dp), colorFilter = androidx.glance.ColorFilter.tint(WColors.accent))
-                Spacer(GlanceModifier.width(6.dp))
-                Text(ctx.getString(R.string.w_today), style = TextStyle(color = WColors.muted, fontSize = 13.sp), modifier = GlanceModifier.defaultWeight())
-                Text(d.total, style = TextStyle(color = WColors.text, fontSize = 20.sp, fontWeight = FontWeight.Bold))
-            }
+            // Header: [icon] Today ........ 1 h 12 m   (mirrored in Arabic)
+            DirRow(
+                dir, GlanceModifier.fillMaxWidth(),
+                parts = listOf(
+                    { Image(ImageProvider(R.drawable.ic_stat_sword), null, GlanceModifier.size(18.dp), colorFilter = androidx.glance.ColorFilter.tint(WColors.accent)) },
+                    { Spacer(GlanceModifier.width(6.dp)) },
+                    { Text(dir.t(ctx.getString(R.string.w_today)), style = TextStyle(color = WColors.muted, fontSize = 13.sp, textAlign = dir.textAlign), modifier = GlanceModifier.defaultWeight()) },
+                    { Text(dir.t(d.total), style = TextStyle(color = WColors.text, fontSize = 20.sp, fontWeight = FontWeight.Bold)) },
+                ),
+            )
             Spacer(GlanceModifier.height(8.dp))
             if (d.protectionOff) {
                 Text(
-                    ctx.getString(R.string.banner_off),
-                    style = TextStyle(color = WColors.danger, fontSize = 13.sp, fontWeight = FontWeight.Medium),
+                    dir.t(ctx.getString(R.string.banner_off)),
+                    style = TextStyle(color = WColors.danger, fontSize = 13.sp, fontWeight = FontWeight.Medium, textAlign = dir.textAlign),
                     modifier = GlanceModifier.fillMaxWidth().background(WColors.dangerSoft).cornerRadius(10.dp).padding(8.dp),
                 )
                 Spacer(GlanceModifier.height(6.dp))
             }
             if (d.empty) {
-                Text(ctx.getString(R.string.w_nothing), style = TextStyle(color = WColors.muted, fontSize = 13.sp))
+                Text(dir.t(ctx.getString(R.string.w_nothing)), style = TextStyle(color = WColors.muted, fontSize = 13.sp, textAlign = dir.textAlign), modifier = GlanceModifier.fillMaxWidth())
             } else {
-                d.lines.take(rows).forEach { l -> LineRow(l) }
-                if (d.lines.size > rows) Text(ctx.tr(R.string.w_more, "n" to d.lines.size - rows), style = TextStyle(color = WColors.muted, fontSize = 11.sp))
+                d.lines.take(rows).forEach { l -> LineRow(dir, l) }
+                if (d.lines.size > rows) {
+                    Text(dir.t(ctx.tr(R.string.w_more, "n" to d.lines.size - rows)), style = TextStyle(color = WColors.muted, fontSize = 11.sp, textAlign = dir.textAlign), modifier = GlanceModifier.fillMaxWidth())
+                }
             }
             Spacer(GlanceModifier.defaultWeight())
-            Text(d.pausesLeft, style = TextStyle(color = WColors.muted, fontSize = 11.sp))
+            Text(dir.t(d.pausesLeft), style = TextStyle(color = WColors.muted, fontSize = 11.sp, textAlign = dir.textAlign), modifier = GlanceModifier.fillMaxWidth())
         }
     }
 
     @Composable
-    private fun LineRow(l: Line) {
+    private fun LineRow(dir: Dir, l: Line) {
         Column(GlanceModifier.fillMaxWidth().padding(vertical = 3.dp)) {
-            Row(GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text(l.name, style = TextStyle(color = WColors.text, fontSize = 14.sp, fontWeight = FontWeight.Medium), maxLines = 1, modifier = GlanceModifier.defaultWeight())
-                Text(l.value, style = TextStyle(color = if (l.blocked) WColors.danger else WColors.muted, fontSize = 12.sp), maxLines = 1)
-            }
+            // name ........ time left   (mirrored in Arabic)
+            DirRow(
+                dir, GlanceModifier.fillMaxWidth(),
+                parts = listOf(
+                    { Text(dir.t(l.name), style = TextStyle(color = WColors.text, fontSize = 14.sp, fontWeight = FontWeight.Medium, textAlign = dir.textAlign), maxLines = 1, modifier = GlanceModifier.defaultWeight()) },
+                    { Spacer(GlanceModifier.width(8.dp)) },
+                    { Text(dir.t(l.value), style = TextStyle(color = if (l.blocked) WColors.danger else WColors.muted, fontSize = 12.sp), maxLines = 1) },
+                ),
+            )
             if (l.progress != null) {
                 Spacer(GlanceModifier.height(4.dp))
-                LinearProgressIndicator(
-                    progress = l.progress,
-                    modifier = GlanceModifier.fillMaxWidth().height(5.dp),
-                    color = if (l.blocked) WColors.danger else WColors.accent,
-                    backgroundColor = WColors.accentSoft,
-                )
+                // A bar fills from the reading start. When the launcher runs the other way,
+                // draw the empty part as the bar's progress so the filled part starts on the right side.
+                if (dir.flip) {
+                    LinearProgressIndicator(
+                        progress = 1f - l.progress,
+                        modifier = GlanceModifier.fillMaxWidth().height(5.dp),
+                        color = WColors.accentSoft,
+                        backgroundColor = if (l.blocked) WColors.danger else WColors.accent,
+                    )
+                } else {
+                    LinearProgressIndicator(
+                        progress = l.progress,
+                        modifier = GlanceModifier.fillMaxWidth().height(5.dp),
+                        color = if (l.blocked) WColors.danger else WColors.accent,
+                        backgroundColor = WColors.accentSoft,
+                    )
+                }
             }
         }
     }
