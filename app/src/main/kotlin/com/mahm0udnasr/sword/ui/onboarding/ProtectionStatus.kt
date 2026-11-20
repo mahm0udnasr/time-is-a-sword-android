@@ -96,10 +96,7 @@ fun rememberFixer(c: AppContainer, committer: Committer): (CheckId) -> Unit {
 private fun guardWouldBlock(ctx: Context, c: AppContainer) =
     HealthCheck.serviceEnabled(ctx) && guardActive(c.config.value.protection, c.state.value.guardSuspendedUntil, System.currentTimeMillis())
 
-private fun open(ctx: Context, id: CheckId) {
-    val i = Checks.fixIntent(ctx, id) ?: return
-    runCatching { ctx.startActivity(i) }
-}
+private fun open(ctx: Context, id: CheckId) = Checks.open(ctx, id)
 
 @Composable
 fun CheckMark(ok: Boolean?, required: Boolean) {

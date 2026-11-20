@@ -65,7 +65,12 @@ object Checks {
         return src == PackageInstaller.PACKAGE_SOURCE_LOCAL_FILE || src == PackageInstaller.PACKAGE_SOURCE_DOWNLOADED_FILE
     }
 
-    /** The screen that fixes it (notifications on Android 13+ are a permission request instead, see the UI). */
+    /**
+     * The screen that fixes it (notifications on Android 13+ are a permission request instead, see the UI).
+     * No FLAG_ACTIVITY_NEW_TASK here: Android's "Activate device admin" screen closes at once when it
+     * can't see which app asked (verified on One UI 9). Start it from an Activity; [open] adds the flag
+     * only for a non-Activity context.
+     */
     @SuppressLint("BatteryLife")
     fun fixIntent(ctx: Context, id: CheckId): Intent? {
         val pkg = Uri.fromParts("package", ctx.packageName, null)
@@ -77,7 +82,23 @@ object Checks {
             CheckId.BATTERY -> Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, pkg)
             CheckId.EXACT_ALARMS -> if (Build.VERSION.SDK_INT >= 31) Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, pkg) else null
             CheckId.ADMIN -> SwordDeviceAdmin.activateIntent(ctx)
-        }?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+    }
+
+    /** Start the fix screen of [id]. */
+    fun open(ctx: Context, id: CheckId) {
+        val i = fixIntent(ctx, id) ?: return
+        if (ctx.findActivity() == null) i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        runCatching { ctx.startActivity(i) }
+    }
+
+    private fun Context.findActivity(): android.app.Activity? {
+        var c: Context? = this
+        while (c is android.content.ContextWrapper) {
+            if (c is android.app.Activity) return c
+            c = c.baseContext
+        }
+        return null
     }
 
     /** These two open our App info page, which the Settings guard closes while the service runs. */

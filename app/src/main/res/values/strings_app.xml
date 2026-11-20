@@ -137,7 +137,7 @@
     <string name="ob_privacy" formatted="false">Everything stays on your phone: no account, no tracking, nothing is sent anywhere. The only network call is the optional prayer times for a typed city.</string>
     <string name="ob_steps" formatted="false">A few steps follow so Android lets the app work. Each one opens the right screen; come back here after each.</string>
     <string name="ob_unusedSteps" formatted="false">On App info, switch off “Manage app if unused” (or “Pause app activity if unused”), then come back.</string>
-    <string name="ob_restrictedSteps" formatted="false">Do this if the app’s switch in Accessibility is greyed out (“For your security, this setting is currently unavailable”):\n1. Try to switch it on once in the next step.\n2. Come back here and open App info.\n3. Tap ⋮ (top corner) › Allow restricted settings, and confirm with your PIN.\n4. Go to the next step again.</string>
+    <string name="ob_restrictedSteps" formatted="false">Android blocks this for apps installed from a file. If switching the app on in Accessibility shows “App was denied access” or “For your security, this setting is currently unavailable”:\n1. Tap the button below to open App info.\n2. Tap ⋮ (top corner) › Allow restricted settings, and confirm with your PIN.\n3. Go to the next step and switch the app on.</string>
     <string name="ob_a11ySteps" formatted="false">Open Installed apps (or Downloaded apps) › Time Is a Sword, switch it on and allow. Greyed out? Go back one step.</string>
     <string name="ob_adminSteps" formatted="false">Android shows its own screen: tap Activate. To uninstall later: Settings › Protection › Turn off protection.</string>
     <string name="ob_targets" formatted="false">What takes your time?</string>

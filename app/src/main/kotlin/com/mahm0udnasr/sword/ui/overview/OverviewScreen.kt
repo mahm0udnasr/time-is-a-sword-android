@@ -328,7 +328,7 @@ private fun ProtectionOffBanner() {
     ) {
         Text(stringResource(R.string.banner_off), color = t.danger, modifier = Modifier.weight(1f))
         androidx.compose.material3.TextButton(onClick = {
-            com.mahm0udnasr.sword.system.Checks.fixIntent(ctx, com.mahm0udnasr.sword.system.CheckId.ACCESSIBILITY)?.let { runCatching { ctx.startActivity(it) } }
+            com.mahm0udnasr.sword.system.Checks.open(ctx, com.mahm0udnasr.sword.system.CheckId.ACCESSIBILITY)
         }) { Text(stringResource(R.string.chk_fix)) }
     }
 }
